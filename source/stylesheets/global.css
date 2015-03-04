@@ -1,4 +1,4 @@
-/* 
+/*
  *= require "bootstrap/dist/css/bootstrap.min.css"
  *= require "fontawesome/css/font-awesome.min.css"
  */
@@ -16,7 +16,7 @@ body {
 
 #wrapper {
   width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .jumbotron {
@@ -41,7 +41,7 @@ body {
 }
 
 main {
-  padding-top: 100px; 
+  padding-top: 100px;
 }
 
 footer {
@@ -112,7 +112,7 @@ section {
 
 /* =Header
 -------------------------------------------------------------- */
-header .container { 
+header .container {
   padding: 0;
 }
 header {

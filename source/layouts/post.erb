@@ -1,0 +1,38 @@
+<% wrap_layout :layout do %>
+
+<section>
+<div class="container">
+<div class="row">
+  <div class="col-lg-9">
+    <article>
+      <h1><a href="<%= current_article.url %>"><%= current_article.title %></a></h1>
+      <p><%= current_article.data.author || "Glider Labs" %> wrote this on
+        <%= current_article.date.strftime('%B') %>
+        <%= current_article.date.strftime('%-d') %>,
+        <%= current_article.date.strftime('%Y') %></p>
+
+      <%= yield %>
+    </article>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'gliderlabs'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+  <%= partial "blog/sidebar" %>
+</div>
+</div>
+</section>
+
+<% end %>

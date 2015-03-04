@@ -1,0 +1,38 @@
+
+serve() {
+	declare desc="Run local development server"
+	bundle exec middleman
+}
+
+article() {
+	declare desc="Generate a new article"
+	declare title="$1"
+	bundle exec middleman article "$title"
+}
+
+build() {
+	declare desc="Build middleman static site"
+	declare opts="$1"
+	bundle exec middleman build $opts
+}
+
+deploy() {
+	declare desc="Deploy site to gh-pages"
+	bundle exec middleman deploy
+}
+
+upgrade() {
+	declare desc="Upgrade project dependencies"
+	bundle update
+	bower update
+	cp bower_components/fontawesome/fonts/* source/fonts
+}
+
+init() {
+	cmd-export article
+	cmd-export serve
+	cmd-export build
+	cmd-export serve
+	cmd-export deploy
+	cmd-export upgrade
+}

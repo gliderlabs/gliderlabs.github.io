@@ -1,0 +1,35 @@
+
+#sidebar p:not(:first-child) {
+	font-size: smaller;
+}
+#sidebar .social {
+	margin-top: 20px;
+}
+#sidebar h5 {
+	margin-left: 25px;
+	font-size: x-large;
+}
+
+article {
+	margin-bottom: 30px;
+}
+article h1 a {
+	color: #57565A;
+}
+article p:first-of-type {
+	color: #9D9BA0;
+	font-style: italic;
+	font-size: smaller;
+	margin-bottom: 30px;
+}
+article a {
+  color: #00A6CE;
+}
+article img {
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+#disqus_thread {
+	padding-top: 80px;
+}

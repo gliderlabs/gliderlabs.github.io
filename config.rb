@@ -35,6 +35,7 @@ activate :blog do |blog|
   blog.page_link = "page{num}"
 end
 
+activate :directory_indexes
 page "/blog/atom.xml", layout: false
 
 # Per-page layout changes:

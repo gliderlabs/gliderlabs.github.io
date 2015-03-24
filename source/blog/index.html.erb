@@ -11,7 +11,7 @@ per_page: 5
   <div class="col-lg-9">
     <article>
       <h1><a href="<%= article.url %>"><%= article.title %></a></h1>
-      <p><%= article.data.author || "Glider Labs" %> wrote this on
+      <p class="sub"><%= article.data.author || "Glider Labs" %> wrote this on
         <%= article.date.strftime('%B') %>
         <%= article.date.strftime('%-d') %>,
         <%= article.date.strftime('%Y') %></p>
@@ -37,7 +37,7 @@ per_page: 5
   <div class="col-lg-9">
     <article>
       <h1><a href="<%= article.url %>"><%= article.title %></a></h1>
-      <p><%= article.data.author || "Glider Labs" %> wrote this on
+      <p class="sub"><%= article.data.author || "Glider Labs" %> wrote this on
         <%= article.date.strftime('%B') %>
         <%= article.date.strftime('%-d') %>,
         <%= article.date.strftime('%Y') %></p>

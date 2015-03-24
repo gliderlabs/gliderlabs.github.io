@@ -16,7 +16,7 @@ article {
 article h1 a {
 	color: #57565A;
 }
-article p:first-of-type {
+article p.sub {
 	color: #9D9BA0;
 	font-style: italic;
 	font-size: smaller;

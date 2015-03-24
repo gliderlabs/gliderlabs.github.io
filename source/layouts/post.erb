@@ -6,7 +6,7 @@
   <div class="col-lg-9">
     <article>
       <h1><a href="<%= current_article.url %>"><%= current_article.title %></a></h1>
-      <p><%= current_article.data.author || "Glider Labs" %> wrote this on
+      <p class="sub"><%= current_article.data.author || "Glider Labs" %> wrote this on
         <%= current_article.date.strftime('%B') %>
         <%= current_article.date.strftime('%-d') %>,
         <%= current_article.date.strftime('%Y') %></p>

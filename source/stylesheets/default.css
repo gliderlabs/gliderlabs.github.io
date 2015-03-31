@@ -29,6 +29,10 @@ article img {
 	margin-left: 10px;
 	margin-right: auto;
 }
+article h2, article h3, article h4 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
 #disqus_thread {
 	padding-top: 80px;

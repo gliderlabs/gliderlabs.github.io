@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    addressable (2.3.7)
+    addressable (2.3.8)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -45,8 +45,8 @@ GEM
     i18n (0.7.0)
     json (1.8.2)
     kramdown (1.6.0)
-    listen (2.9.0)
-      celluloid (>= 0.15.2)
+    listen (2.10.0)
+      celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     middleman (3.3.10)
@@ -112,6 +112,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    redcarpet (3.2.2)
     rouge (1.8.0)
     sass (3.4.13)
     sprockets (2.12.3)
@@ -146,3 +147,4 @@ DEPENDENCIES
   middleman-deploy
   middleman-livereload
   middleman-syntax
+  redcarpet

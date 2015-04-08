@@ -6,11 +6,11 @@ tags:
 ---
 <img src="/images/xerox_parc_1975.jpg" title="Xerox PARC, 1975 via Computer History Museum" />
 
-Desktop computing, graphical user interfaces, object-oriented programming, laser printing, Ethernet ... pillars of modern computing invented by only 25 people over 5 years at one place.
+Desktop computing, graphical user interfaces, object-oriented programming, laser printing, Ethernet. Pillars of modern computing invented by only 25 people over 5 years at one place: Xerox PARC.
 
-Unix and C ... the foundations of modern systems software initially developed by just 2 people over 3 years at one place.
+Unix and C. Foundations of modern systems software initially developed by just 2 people over 3 years at one place: Bell Labs.
 
-Both happened in the early 1970s. *Over 40 years ago.* What exactly have we been doing since?
+Both happened in the early 1970s. *That was over 40 years ago.* What exactly have the rest of us been doing since?
 
 "We've been looking at photos of cats!" Okay, but really.
 

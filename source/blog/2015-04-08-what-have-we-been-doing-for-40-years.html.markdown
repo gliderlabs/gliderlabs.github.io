@@ -22,7 +22,7 @@ Consumers are not complaining. In fact, they're eating it up. Innovation is clea
 
 Some say Google X is the new Xerox PARC. No way. Google X is about sexy commercial applications that are extremely risky. Xerox PARC was about researchers' independent curiosity and vision. One was set up for "pie in the sky" innovation, the other was set up for "blue sky" *invention*.
 
-Interestingly, systems software and tooling naturally gets the more attention when allowed blue sky invention. Put a bunch of computer scientists together and let them do whatever they want. What are they going to do? Odds are they'll design a new programming language. Exactly! I know that's not particularly ideal, but it reveals the inherent bias. Compare that scenario with them being tasked to change the world.
+Interestingly, systems software and tooling naturally gets more attention when allowed blue sky invention. Put a bunch of computer scientists together and let them do whatever they want. What are they going to do? Odds are they'll design a new programming language. Exactly! I know that's not particularly ideal, but it reveals the inherent bias. Compare that scenario with them being tasked to change the world.
 
 Innovation is great. I'm not trying to devalue the work we've done since the 70s. However, this obsession with innovation clearly devalues invention. Moreover, looking at what are effectively the same tools after 40 years, my concern is that lack of invention stifles major progress in systems software.
 

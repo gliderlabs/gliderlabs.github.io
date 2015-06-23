@@ -18,6 +18,8 @@ p {
   margin-bottom: 13px;
 }
 
+
+
 #wrapper {
   width: 100%;
   margin: 0 auto;
@@ -89,7 +91,7 @@ h2 {
 }
 
 .bg-gray {
-  background: #57565A;
+  background: #57565A !important;
   color: #fff;
 }
 .bg-gliderblue {
@@ -97,7 +99,9 @@ h2 {
   color: #fff;
 }
 
-
+.btn {
+  border: 0px;
+}
 .btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
     background-color: #00A6CE;
     box-shadow: 2px 2px 3px rgba(0,0,0, .2);
@@ -116,6 +120,10 @@ section {
 
 /* =Header
 -------------------------------------------------------------- */
+/* fontawesome icons */
+nav a i {
+  vertical-align: text-top !important;
+}
 header .container {
   padding: 0;
 }
@@ -151,15 +159,16 @@ header {
     display: inline-block;
     padding-top: 40px;
     padding-bottom: 40px;
+    text-transform: uppercase;
     float: right; }
     header nav a {
       padding: 20px;
-      font-weight: 300;
-      font-size: 18px;
+      font-weight: 500;
+      font-size: 15px;
       -webkit-transition: all 0.3s;
       -moz-transition: all 0.3s;
       -ms-transition: all 0.3s;
       -o-transition: all 0.3s;
       transition: all 0.3s; }
       header nav a, header nav a:visited {
-        color: #57565A; }
+        color: #666; }

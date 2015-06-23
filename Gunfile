@@ -1,27 +1,27 @@
 
-serve() {
+cmd:serve() {
 	declare desc="Run local development server"
 	bundle exec middleman
 }
 
-article() {
+cmd:article() {
 	declare desc="Generate a new article"
 	declare title="$1"
 	bundle exec middleman article "$title"
 }
 
-build() {
+cmd:build() {
 	declare desc="Build middleman static site"
 	declare opts="$1"
 	bundle exec middleman build $opts
 }
 
-deploy() {
+cmd:deploy() {
 	declare desc="Deploy site to gh-pages"
 	bundle exec middleman deploy
 }
 
-upgrade() {
+cmd:upgrade() {
 	declare desc="Upgrade project dependencies"
 	bundle update
 	bower update
@@ -29,10 +29,10 @@ upgrade() {
 }
 
 init() {
-	cmd-export article
-	cmd-export serve
-	cmd-export build
-	cmd-export serve
-	cmd-export deploy
-	cmd-export upgrade
+	cmd-export cmd:article article
+	cmd-export cmd:serve serve
+	cmd-export cmd:build build
+	cmd-export cmd:serve serve
+	cmd-export cmd:deploy deploy
+	cmd-export cmd:upgrade upgrade
 }

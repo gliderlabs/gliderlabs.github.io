@@ -142,25 +142,9 @@ header {
   -ms-transition: height 0.3s;
   -o-transition: height 0.3s;
   transition: height 0.3s; }
-  header h1#logo {
-    margin: 0;
-    display: inline-block;
-    height: 100px;
-    line-height: 100px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s; }
-  header h1#logo img {
-    margin-bottom: 10px;
-  }
   header nav {
     display: inline-block;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    text-transform: uppercase;
-    float: right; }
+    text-transform: uppercase; }
     header nav a {
       padding: 20px;
       font-weight: 500;
@@ -172,3 +156,9 @@ header {
       transition: all 0.3s; }
       header nav a, header nav a:visited {
         color: #666; }
+    header nav li {
+      float: left; 
+      display: inline-block;
+      height: 100px;
+      line-height: 85px;
+      vertical-align: middle; }

@@ -2,7 +2,7 @@
 title: Docker Events Explained
 author: Matt Good
 date: 2015-04-14 23:48 UTC
-tags:
+tags: docker
 ---
 
 One of the fantastic features of the Docker platform is the events API. This enables tools like [Registrator](https://github.com/gliderlabs/registrator) and [Logspout](https://github.com/gliderlabs/logspout) to listen for container events like starting and stopping, then act on them.

@@ -2,7 +2,7 @@
 title: Build simple systems to build good systems
 author: Jeff Lindsay
 date: 2015-04-29 11:18 UTC
-tags:
+tags: programming
 ---
 
 We often talk about complexity in software systems, but for some reason we don't seem to talk enough about simplicity. I was quite happy to find that Rich Hickey's keynote at Strange Loop 2011 focused on simplicity.

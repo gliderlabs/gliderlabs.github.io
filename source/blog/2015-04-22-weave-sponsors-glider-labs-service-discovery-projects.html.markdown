@@ -2,7 +2,7 @@
 title: Weave Sponsors Glider Labs Service Discovery Projects
 author: Jeff Lindsay
 date: 2015-04-22 23:23 UTC
-tags:
+tags: company, weave
 ---
 
 Today we're happy to introduce [Weaveworks](http://weave.works/), authors of [Weave](https://github.com/weaveworks/weave), as our newest sponsor. This sponsorship will most immediately support development and increased releases of [Registrator](https://github.com/gliderlabs/registrator), our Docker service discovery bridge. It also enables us to release a few new projects in this space over the next couple months.

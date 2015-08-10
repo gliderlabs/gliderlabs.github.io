@@ -2,7 +2,7 @@
 title: A Pattern Emerges
 author: Jeff Lindsay
 date: 2015-03-04 18:29 UTC
-tags:
+tags: company
 ---
 
 It may not be obvious, but Glider Labs is named after the glider pattern in [Conway's Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). If you're not familiar, Conway's Life is a popular cellular automaton that exhibits how simple rules can lead to complex behavior.

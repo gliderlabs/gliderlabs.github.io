@@ -2,7 +2,7 @@
 title: "New Logspout: Extensible Docker Logging"
 author: Jeff Lindsay
 date: 2015-03-31 20:07 UTC
-tags:
+tags: logspout, docker
 ---
 
 [Logspout](https://github.com/gliderlabs/logspout) is a Docker container for stateless, host-level log forwarding. It was designed specifically for Docker container logs. It's one of the earliest standalone components built for the Docker ecosystem, and the canonical way to deal with Docker logs for many.

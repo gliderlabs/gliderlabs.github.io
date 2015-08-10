@@ -2,7 +2,7 @@
 title: The Modern Systems Software Mess
 author: Jeff Lindsay
 date: 2015-03-24 23:16 UTC
-tags:
+tags: company
 ---
 In August 2000, while Rob Pike was still at Bell Labs and before he co-developed Go, he gave a talk called [Systems Software Research is Irrelevant](http://doc.cat-v.org/bell_labs/utah2000/). Today the situation is perhaps not as dire. At the very least, his examples are noticeably dated. However, many of his points remain true and point at systemic roadblocks to better systems software.
 

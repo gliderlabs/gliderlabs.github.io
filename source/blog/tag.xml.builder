@@ -1,7 +1,7 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   site_url = "http://gliderlabs.com/"
-  xml.title "Glider Labs"
+  xml.title "Glider Labs - #{tag}"
   xml.subtitle "Infrastructure building blocks designed for humans"
   xml.id URI.join(site_url, blog.options.prefix.to_s)
   xml.link "href" => URI.join(site_url, blog.options.prefix.to_s)
@@ -12,7 +12,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     xml.email "team@gliderlabs.com"
   }
 
-  blog.articles[0..5].each do |article|
+  blog.articles.reject{|a| !a.tags.include? tag }[0..5].each do |article|
     xml.entry do
       xml.title article.title
       xml.link "rel" => "alternate", "href" => URI.join(site_url, article.url)

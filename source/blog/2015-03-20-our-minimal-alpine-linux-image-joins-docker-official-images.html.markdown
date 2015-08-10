@@ -2,7 +2,7 @@
 title: Our minimal Alpine Linux image joins Docker official images
 author: Jeff Lindsay
 date: 2015-03-20 23:32 UTC
-tags:
+tags: alpine, docker
 ---
 When building Docker delivery pipelines, image size is extremely important for fast deploys. Unfortunately, it's too easy to make Docker images over 1GB in size. This is true even when you use many of the official images. It's especially true with many third-party base images. Dockerfile optimization is usually our first priority with clients.
 

@@ -2,7 +2,7 @@
 title: High-performance messaging expertise
 author: Jeff Lindsay
 date: 2015-08-04 17:20 UTC
-tags:
+tags: programming
 ---
 Messaging systems excite me more than they should. Perhaps because they're so
 foundational to distributed systems. Yet there's tons of deep architectural

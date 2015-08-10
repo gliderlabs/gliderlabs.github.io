@@ -25,13 +25,14 @@ activate :blog do |blog|
   blog.prefix = "blog"
   blog.layout = "post"
   blog.permalink = "{year}/{month}/{day}/{title}"
+  blog.taglink = "tags/{tag}.html"
   blog.sources = "{year}-{month}-{day}-{title}.html"
 
   blog.year_link = "{year}.html"
   blog.month_link = "{year}/{month}.html"
   blog.day_link = "{year}/{month}/{day}.html"
 
-  blog.tag_template = "tag.html"
+  blog.tag_template = "blog/tag.html"
   blog.calendar_template = "calendar.html"
 
   blog.paginate = true
@@ -40,7 +41,14 @@ activate :blog do |blog|
 end
 
 activate :directory_indexes
+
+
+data.tags.each do |tag|
+  proxy "/blog/tags/#{tag}.xml", "/blog/tag.xml", :locals => { :tag => tag }
+end
 page "/blog/atom.xml", layout: false
+page "/blog/tags/*.xml", layout: false
+ignore "/blog/tag.xml"
 
 # Per-page layout changes:
 # page "/path/to/file.html", :layout => false

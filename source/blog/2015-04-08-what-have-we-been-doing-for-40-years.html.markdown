@@ -2,7 +2,7 @@
 title: "What have we been doing for 40 years?"
 author: Jeff Lindsay
 date: 2015-04-08 03:29 UTC
-tags:
+tags: company
 ---
 <img src="/images/xerox_parc_1975.jpg" title="Xerox PARC, 1975 via Computer History Museum" />
 

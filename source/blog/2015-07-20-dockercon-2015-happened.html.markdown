@@ -1,7 +1,7 @@
 ---
 title: DockerCon 2015 happened.
 date: 2015-07-20 14:44 UTC
-tags:
+tags: company, docker
 ---
 
 This year we attended the second annual DockerCon in San Francisco. We almost didn't, as our proposed talks were passed on. My abstracts are often generic sounding placeholders, so I don't blame the conference organizers for skipping over an original Docker team member. Regardless, a month before the event, I got an invitation to moderate lightning talks, as well as to give one.

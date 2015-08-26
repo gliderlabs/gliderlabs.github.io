@@ -162,3 +162,13 @@ header {
       height: 100px;
       line-height: 85px;
       vertical-align: middle; }
+
+/* =Footer
+-------------------------------------------------------------- */
+footer li {
+  line-height: 200%;
+}
+
+footer h4 {
+  line-height: 200%
+}

@@ -1,0 +1,12 @@
+{
+  "name": "gl16",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Lindsay <progrium@gmail.com> (http://progrium.com)",
+  "dependencies": {
+    "semantic-ui": "^2.2.2"
+  }
+}

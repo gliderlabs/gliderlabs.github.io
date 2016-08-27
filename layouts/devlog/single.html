@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">{{ slicestr .Date.Month 0 3 }}</span>
+          <span class="day">{{ .Date.Day }}</span>
+          <span class="year">{{ .Date.Year }}</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+      </div>
+      {{ .Content }}
+    </article>
+  </div>
+  <div class="four wide column">
+    {{ partial "devlog-sidebar.html" . }}
+  </div>
+</div>
+
+{{ partial "subscribe-section.html" . }}
+
+{{ partial "comments-section.html" . }}
+
+{{ end }}

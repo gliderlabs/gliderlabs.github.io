@@ -1,0 +1,14 @@
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      {{ range $i, $item := .Site.Menus.main }}
+      <div class="{{ if eq $i 0 }}right {{ end }}item">
+        <a href="{{.URL}}">{{ $item.Name}}</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</header>

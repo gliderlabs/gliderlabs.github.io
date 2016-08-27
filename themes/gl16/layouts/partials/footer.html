@@ -1,0 +1,55 @@
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          {{ range $i, $item := .Site.Menus.main }}
+          <div class="item"><a href="{{.URL}}">{{ $item.Name}}</a></div>
+          {{ end }}
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs {{ .Now.Year }}<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>

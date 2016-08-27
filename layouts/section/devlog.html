@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ range first 1 (where .Data.Pages "Params.hidden" "ne" "true") }}
+<section class="article">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">{{ slicestr .Date.Month 0 3 }}</span>
+                <span class="day">{{ .Date.Day }}</span>
+                <span class="year">{{ .Date.Year }}</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        </div>
+        {{ .Content }}
+        <p class="small"><a href="{{ .Permalink }}">Comments »</a></p>
+      </article>
+    </div>
+    <div class="four wide column">
+      {{ partial "devlog-sidebar.html" . }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ partial "subscribe-section.html" . }}
+
+{{ range $index, $post := after 1 (where .Data.Pages "Params.hidden" "ne" "true") }}
+<section class="article below{{ if eq (mod $index 2) 0 }} alt{{ end }}">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">{{ slicestr .Date.Month 0 3 }}</span>
+                <span class="day">{{ .Date.Day }}</span>
+                <span class="year">{{ .Date.Year }}</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        </div>
+        {{ .Summary }}
+        <p class="small"><a href="{{ .Permalink }}">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,36 @@
+baseurl = "http://localhost:1313"
+languageCode = "en-us"
+title = "Glider Labs, Open Source Innovation Lab"
+theme = "gl16"
+googleAnalytics = "UA-58928488-1"
+disqusShortname = "gliderlabs"
+pluralizeListTitles = false
+
+[author]
+  name = "Jeff Lindsay"
+
+[[menu.main]]
+  name = "Devlog"
+  weight = 10
+  identifier = "devlog"
+  url = "/devlog/"
+[[menu.main]]
+  name = "Wiki"
+  weight = 20
+	identifier = "wiki"
+  url = "/wiki/"
+[[menu.main]]
+  name = "Projects"
+  weight = 30
+	identifier = "projects"
+  url = "http://gliderlabs.com/projects"
+[[menu.main]]
+  name = "Community"
+  weight = 40
+	identifier = "community"
+  url = "http://glider-slackin.herokuapp.com"
+[[menu.main]]
+  name = "Finances"
+  weight = 50
+	identifier = "finances"
+  url = "/finances/"

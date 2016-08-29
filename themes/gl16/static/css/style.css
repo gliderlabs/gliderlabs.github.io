@@ -42,13 +42,13 @@ section.article.below {
 }
 
 .sidebar p, .sidebar h5 {
-  color: rgba(0,0,0,0.6) !important;
+  color: rgba(0,0,0,0.8) !important;
 }
 .sidebar p.social {
   text-align: center;
   padding-top: 10px !important;
 }
 .sidebar p.social a {
-  color: rgba(0,0,0,0.4) !important;
+  color: rgba(0,0,0,0.5) !important;
   font-size: .8em;
 }

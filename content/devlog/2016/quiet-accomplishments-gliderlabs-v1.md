@@ -7,6 +7,8 @@ tags = ["company"]
 
 Next month I'll be announcing the details of a reboot of Glider Labs. Since starting this company in 2014, we've been primarily focused on consulting services. However, our biggest impact has come from our open source projects. Despite not having the resources to properly support these projects, Glider Labs has quietly achieved a significant user base from these intentionally simple components.
 
+<!--more-->
+
 We don't have a marketing budget and we barely have time to even maintain these projects. At our peak there had been five of us part-time, but for the bulk of our existence it has just been two of us. Yet over the past couple years these projects have received tens of millions of downloads and are some of the most popular projects in the Docker ecosystem.
 
 ## Registrator

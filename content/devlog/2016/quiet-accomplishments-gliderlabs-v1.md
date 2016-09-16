@@ -27,7 +27,7 @@ Docker Hub today reports 249 *public* images with Logspout in the name. Our offi
 
 We're not responsible for Alpine Linux, but we did popularize it in the Docker community with a [general purpose base image](https://github.com/gliderlabs/docker-alpine). It is the smallest Linux distribution with a very extensive and up-to-date package library. After our `gliderlabs/alpine` image started to become popular, we submitted it to the official Docker Library, making us responsible for the `alpine` Docker image. However, since Docker later hired Alpine creator Nathanel Copa, we don't get much credit for it.
 
-Nevertheless, Alpine is becoming one of the most popular base images used in the Docker ecosystem. Docker themselves recently moved many of their official images to Alpine. Kubernetes also uses Alpine for their base images.
+Nevertheless, Alpine is becoming one of the most popular base images used in the Docker ecosystem. Docker themselves recently moved many of their official images to Alpine. 
 
 The Alpine Linux image has also received over 10 million direct pulls, but is probably more widely used as the base image for many public and private images. We can't easily measure its true usage, but anecdotally, we talked to nearly every vendor at DockerCon 2015 and even then over half of them were using Alpine. We even noticed most of the talks and demos by Docker employees were using Alpine.
 

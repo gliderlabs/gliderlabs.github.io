@@ -2,7 +2,7 @@
 date = "2016-09-01T18:00:00-05:00"
 title = "Commands as a Service with Cmd.io"
 author = "Jeff Lindsay"
-tags = ["announcement", "cmd.io"]
+tags = ["announcements", "cmd.io"]
 +++
 
 Today I'm excited to announce a soon-to-be-released, eventually open source

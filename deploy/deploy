@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -eo pipefail
+
+main() {
+  if [[ "$1" == "-" ]]; then
+    cat | tar -xpf -
+  else
+    git clone https://github.com/gliderlabs/gliderlabs.github.io .
+    if [[ "$1" != "" ]]; then
+      git checkout "$1"
+    fi
+  fi
+  rm -rf public
+  hugo -D -b "http://gliderlabs.com"
+  cd public
+  git config --global user.name "Robot"
+  git config --global user.email "progrium+robot@gmail.com"
+  mkdir -p /root/.ssh
+  echo "$SSHKEY" | base64 -d > /root/.ssh/id_rsa
+  chmod 600 /root/.ssh/id_rsa
+  echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+  git init
+  git remote add origin git@github.com:gliderlabs/gliderlabs.github.io.git
+	git add .
+  git commit -m "auto commit"
+	git push origin -f master
+}
+
+main $@

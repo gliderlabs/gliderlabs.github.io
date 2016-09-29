@@ -14,7 +14,7 @@ Well I said I'd post more about the Glider Labs reboot this month and I'm about 
  * Set up financial transparency
  * Announce three new projects
 
-We [announced Cmd.io](http://gliderlabs.com/devlog/2016/announcing-cmd-io/) but the other two projects have yet to be announced, except to a few friends and colleagues.
+This was too much to finish so quickly. We did [announce Cmd.io](http://gliderlabs.com/devlog/2016/announcing-cmd-io/) but the other two projects are not ready to be announced, except to a few friends and colleagues.
 
 Why three projects? I wanted to make it clear that no single project is the focus of Glider Labs. They'd also be different enough to show that it's bigger than just one kind of project. Although before the reboot you might consider Glider Labs a "DevOps" company, that's no longer the case even if we still have existing and planned projects that fall into that category.
 
@@ -30,8 +30,8 @@ I'd love to try and explain what I mean by that, but this post would quickly get
 
 A few people I know that have absorbed enough of it have mentioned how much it echoes of [Douglas Engelbart's](https://en.wikipedia.org/wiki/Douglas_Engelbart) work, at least in scope and intention ("augmenting human capability"). I've also rather intentionally borrowed a lot of his ideas in approach, most significantly, using the system to build the system ("bootstrapping").
 
-All this said, it's easier to build and show than to explain up front, and better than making lofty sounding promises before validating them. That's why I wanted to at least announce and demo some of the projects with our reboot announcement. However, we'll just have to wait a bit longer. There's plenty of time.
+All this said, it's easier to build and show than to explain up front, and better to show proof than make lofty sounding promises. That's why I wanted to at least announce and demo some of the projects with our reboot announcement. However, we'll just have to wait a bit longer. There's plenty of time.
 
-So there we are. I didn't quite achieve what I wanted to with this announcement, but I'm quite excited. Over the next ... well for the foreseeable future you'll see more announcements, more details, and over time the plan will reveal itself regardless of what I was able to communicate.
+So there we are. I didn't quite achieve what I wanted to with this announcement, but I'm very excited. Over the next ... well for the foreseeable future you'll see more announcements, more details, and over time the plan will reveal itself regardless of what I was able to communicate.
 
 [A pattern will emerge.](http://gliderlabs.com/devlog/2015/a-pattern-emerges/)

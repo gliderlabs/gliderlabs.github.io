@@ -65,10 +65,15 @@ function update(mode) {
   drawChart();
 }
 
-function displayName(name) {
+function tableName(name) {
   var parts = name.split(":");
   parts.shift();
   return parts.join(":")
+}
+
+function chartName(name) {
+  var parts = name.split(":");
+  return parts[parts.length-1];
 }
 
 function drawChart() {
@@ -80,7 +85,7 @@ function drawChart() {
       labels: ["Jan '16", "Feb '16", "Mar '16", "Apr '16", "May '16", "Jun '16", "Jul '16", "Aug '16", "Sep '16", "Oct '16", "Nov '16", "Dec '16"],
       datasets: _.map(_.keys(data), function(key, idx) {
       	return {
-          label: displayName(key),
+          label: chartName(key),
           data: data[key],
           backgroundColor: colors[idx],
           pointHoverBackgroundColor: colors[idx],
@@ -112,7 +117,11 @@ function drawChart() {
       	enabled: true,
         intersect: false,
         mode: 'index',
-        displayColors: false
+        displayColors: false,
+        filter: function(v, o) {
+          if (o.datasets[v.datasetIndex].data[v.index] == 0) return null;
+          return v;
+        }
       }
     }/*,
       annotation: {
@@ -155,7 +164,7 @@ function drawTable() {
     var style = (info[key].active || info[key].type != "service") ? "" : "text-decoration: line-through;";
     return [
       {v:'', p:{style:"background: "+colors[idx]+";"}},
-      {v: displayName(key), p:{style:style}},
+      {v: tableName(key), p:{style:style}},
       {v: info[key].monthly, p:{style:"width: 150px;"}},
       {v: info[key].total, p:{style:"width: 150px;"}}]
   }));

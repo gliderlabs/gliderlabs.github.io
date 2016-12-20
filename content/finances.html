@@ -1,0 +1,202 @@
++++
+title = "Running Costs"
++++
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/chartjs/chartjs-plugin-annotation/master/chartjs-plugin-annotation.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+var rawdata = {};
+var data = {};
+var info = {};
+var chart = null;
+var colors = ["#8dd3c7","#bebada","#fb8072","#80b1d3","#fdb462","#b3de69","#fccde5","#d9d9d9","#bc80bd","#ccebc5","#ffed6f","#56beac","#8f88bf","#f93d28","#478ebf","#fc9016","#92cd2d","#f885bf","#b3b3b3","#9d529e","#9ad78c","#ffe322","#379080","#6158a3","#ce1a06","#30658a","#c36902","#668f1f","#f33d9a","#8c8c8c","#6b386c","#68c453","#d5ba00"];
+
+function sum(n) {
+  return _.reduce(n, function(sum,m) { return sum+m });
+}
+
+function init() {
+  $.ajax("https://tully-gl.herokuapp.com/balance", {
+  	error: function(xhr, status, err) {
+  		console.log(err);
+  		alert(status);
+  	},
+    success: function(rawdata) {
+      _.forEach(_.groupBy(rawdata, "account"), function(value, key) {
+        var values = _.map(value, "amount");
+        var total = sum(values);
+        var months = _.reduce(values, function(mo,n) {
+          if (n > 0)
+            return mo+1;
+          else
+            return mo;
+        }, 0);
+        var active = (sum(_.slice(values, -3)) != 0 || months == 1)
+        var monthly = (months < 2 || !active) ? null : Math.round(total/months * 100) / 100;
+        info[key] = {
+          values: values,
+          total: total,
+          active: active,
+          monthly: monthly
+        };
+        if (_.includes(key, "Hosted Services")) {
+          info[key].type = "service";
+        } else if (_.includes(key, "Contractors") || _.includes(key, "Equity:Draw")) {
+          info[key].type = "staff";
+        } else if (!_.includes(key, "Assets:")){
+          info[key].type = "other";
+        }
+      });
+      update("service");
+    }
+  });
+}
+
+function update(mode) {
+  data = {};
+  _.forEach(info, function(account, key) {
+    if (account.total > 0 && account.type == mode) {
+      data[key] = account.values;
+    }
+  });
+  drawTable();
+  drawChart();
+}
+
+function displayName(name) {
+  var parts = name.split(":");
+  parts.shift();
+  return parts.join(":")
+}
+
+function drawChart() {
+  var ctx = document.getElementById("myChart");
+  if (chart !== null) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Jan '16", "Feb '16", "Mar '16", "Apr '16", "May '16", "Jun '16", "Jul '16", "Aug '16", "Sep '16", "Oct '16", "Nov '16", "Dec '16"],
+      datasets: _.map(_.keys(data), function(key, idx) {
+      	return {
+          label: displayName(key),
+          data: data[key],
+          backgroundColor: colors[idx],
+          pointHoverBackgroundColor: colors[idx],
+          pointBackgroundColor: "rgba(0,0,0,0)",
+          borderColor: "rgba(0,0,0,0)"
+      	}
+      })
+    },
+    options: {
+      legend: {
+        position: "bottom",
+        display: false
+      },
+      scales: {
+        xAxes: [
+         {gridLines: {
+          	display: false
+          }}
+        ],
+        yAxes: [{
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+            callback: function(value) {return "$"+value.toString();}
+          }
+        }]
+      },
+      tooltips: {
+      	enabled: true,
+        intersect: false,
+        mode: 'index',
+        displayColors: false
+      }
+    }/*,
+      annotation: {
+  	    drawTime: 'beforeDatasetsDraw',
+          annotations: [{
+              id: 'a-line-1', // optional
+              type: 'line',
+              mode: 'vertical',
+              scaleID: 'y-axis-0',
+              value: '4',
+              borderColor: "#00f",
+              borderWidth: 2,
+              label: {
+                content: "Reboot",
+                enabled: true,
+                fontColor: "#000",
+                yAdjust: -10,
+                xAdjust: 24,
+                fontStyle: "normal",
+                backgroundColor: "rgba(0,0,0,0)"
+              }
+          }]
+      }
+    }*/
+  });
+}
+
+google.charts.load('current', {'packages':['table']});
+google.charts.setOnLoadCallback(init);
+
+function drawTable() {
+  var datatable = new google.visualization.DataTable();
+  var formatter = new google.visualization.NumberFormat({prefix: '$'});
+
+  datatable.addColumn('string', '');
+  datatable.addColumn('string', 'Account');
+  datatable.addColumn('number', 'Monthly');
+  datatable.addColumn('number', 'YTD');
+  datatable.addRows(_.map(_.keys(data), function(key, idx) {
+    var style = (info[key].active || info[key].type != "service") ? "" : "text-decoration: line-through;";
+    return [
+      {v:'', p:{style:"background: "+colors[idx]+";"}},
+      {v: displayName(key), p:{style:style}},
+      {v: info[key].monthly, p:{style:"width: 150px;"}},
+      {v: info[key].total, p:{style:"width: 150px;"}}]
+  }));
+  formatter.format(datatable, 3);
+  formatter.format(datatable, 2);
+  var table = new google.visualization.Table(document.getElementById('table_div'));
+
+  table.draw(datatable, {
+    allowHtml: true,
+    showRowNumber: false,
+    width: '100%',
+    height: '100%', 'cssClassNames': {'headerCell': 'finance-table-header'}});
+}
+
+function select(type, el) {
+  $("#modes .button").removeClass("active");
+  $(el).addClass("active");
+  update(type);
+}
+</script>
+
+<div id="modes" class="ui right floated basic buttons" style="margin-top: -55px;">
+  <div class="ui button active" onclick="select('service', this)">Services</div>
+  <div class="ui button" onclick="select('staff', this)">Staff</div>
+  <div class="ui button" onclick="select('other', this)">Other</div>
+</div>
+
+<p>
+Here we share our expenses and running costs to operate Glider Labs and develop our projects.
+This data is straight from our books and updated in realtime.
+</p>
+
+<p>
+  <div style="width: 1000px; position: relative; margin-left: -120px;">
+    <canvas id="myChart" width="30" height="10"></canvas>
+  </div>
+</p>
+
+<p><div id="table_div"></div></p>
+
+<p>
+  <small>Monthly is averaged over months with transactions.
+    No monthly means inactive, annual, or a one-time expense.</small>
+</p>

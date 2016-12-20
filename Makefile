@@ -8,3 +8,6 @@ deploy:
 
 deployer:
 	cd deploy && docker build -t gl-deploy .
+
+push:
+	git push origin gl2016

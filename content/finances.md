@@ -1,5 +1,0 @@
-+++
-title = "Finances"
-+++
-
-Coming soon.

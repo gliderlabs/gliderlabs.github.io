@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cmd.Io on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/cmd/index.io/</link>
+    <description>Recent content in Cmd.Io on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Sep 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/cmd.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Commands as a Service with Cmd.io</title>
+      <link>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</link>
+      <pubDate>Thu, 01 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;m excited to announce a soon-to-be-released, eventually open source
+product for developers, operators, and power users. It&amp;rsquo;s called Cmd.io, or
+&amp;ldquo;Command IO&amp;rdquo; as we pronounce it. Cmd.io will let you use and share commands for
+the terminal, as a service, over SSH.&lt;/p&gt;
+
+&lt;p&gt;With Cmd.io you can make or install command-line utilities that you can use
+from anyplace with an SSH client. Commands are run in a consistent environment
+that you configure specifically for you or your team. You can share access to
+your commands, allowing friends and colleagues to run them as well. This is
+great for letting anybody on your team kick off build or deployment automations
+right from their terminal. But this is only the beginning!&lt;/p&gt;
+
+&lt;p&gt;In the demo video below, we use &lt;code&gt;jq&lt;/code&gt; as a service, build a PDF with LaTeX
+without installing it, provision cloud resources using
+Terraform with no configuration or credentials, and
+turn &lt;code&gt;git push&lt;/code&gt; into a powerful, programmable automation tool.&lt;/p&gt;
+
+&lt;div class=&#34;ui embed&#34; data-source=&#34;vimeo&#34; data-id=&#34;181089646&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;As mentioned in our &lt;a href=&#34;http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/&#34;&gt;last
+post&lt;/a&gt;, we&amp;rsquo;ll be &amp;ldquo;rebooting&amp;rdquo;
+Glider Labs this month to focus on a number of innovative tools like this. More
+on that soon. We just couldn&amp;rsquo;t wait to give you a preview of what&amp;rsquo;s to come.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re excited by Cmd.io you can subscribe with the link below to hear when it&amp;rsquo;s
+available and possibly get early access. Otherwise,
+let me know what you think in the comments, including ideas you might have for
+how you&amp;rsquo;d use it.&lt;/p&gt;
+
+&lt;div class=&#34;ui info message&#34;&gt;
+  &lt;i class=&#34;mail icon&#34;&gt;&lt;/i&gt;&lt;a href=&#34;http://eepurl.com/cdWjaX&#34;&gt;Subscribe&lt;/a&gt;
+  to be notified when Cmd.io comes online.
+
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

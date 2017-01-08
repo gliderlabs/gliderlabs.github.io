@@ -1,0 +1,60 @@
+article {
+  margin-left: 75px !important;
+  font-size: larger !important;
+  margin-bottom: 40px;
+}
+
+article p, article ul {
+  margin: 0 0 1.6em;
+  line-height: 1.6em;
+  font-size: 1.1em;
+  color: #444;
+  letter-spacing: 0.01em;
+}
+
+article .footer {
+  font-size: smaller;
+  color: #999;
+}
+
+article .header {
+  margin-top: 0px !important;
+  margin-bottom: 20px !important;
+}
+article .header h1 {
+  margin-bottom: 0px;
+  font-size: xx-large;
+}
+article .header h1 a:link, article .header h1 a:visited {
+  color: rgba(0,0,0,.7) !important;
+}
+
+article .meta {
+  position: absolute;
+  margin-left: -78px;
+  margin-top: 5px;
+  padding-top: 6px;
+  width: 70px;
+  font-weight: 400;
+  padding-bottom: 20px;
+  font-family: Vollkorn, Georgia, serif;
+}
+article .meta .month {
+  font-size: 18px;
+  line-height: 15px;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+article .meta .day {
+  display: block;
+  line-height: 32px;
+  font-size: 30px;
+  text-align: center;
+}
+article .meta .year {
+  font-size: 15px;
+  line-height: 15px;
+  display: block;
+  text-align: center;
+}

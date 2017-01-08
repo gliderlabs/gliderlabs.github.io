@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Fastly CDN speeds up Alpine package installs :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Sep</span>
+          <span class="day">23</span>
+          <span class="year">2015</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2015/fastly-cdn-speeds-up-alpine-package-installs/">Fastly CDN speeds up Alpine package installs</a></h1>
+      </div>
+      <p>We love fast things. Fast servers, fast cars, fast food. It is one of the reasons we make heavy use of <a href="http://www.alpinelinux.org/">Alpine Linux</a> and maintain a <a href="https://hub.docker.com/r/gliderlabs/alpine/">reputable Alpine Linux Docker image</a> (you do know that <a href="https://github.com/docker-library/official-images/blob/master/library/alpine">Glider Labs also maintains the official Alpine Linux image</a>, right?). It is small, lean, and very quick to install packages from <a href="http://alpine.gliderlabs.com/alpine/v3.2/main/x86_64/">its very vast package index</a>. But could it be quicker?</p>
+
+<p><img src="/images/2015/pulling.png" alt="Pulling!" /></p>
+
+<p>Early in our Alpine Linux love affair we realized that package installation timeouts and mirror distance played a role in our <a href="https://github.com/gliderlabs/docker-alpine/issues/15">build reliability</a> and speed. Early tests showed that by just switching to a closer package mirror we could speed up image building nearly two-fold. As the <a href="https://github.com/gliderlabs/docker-alpine/issues/57">image is used worldwide</a>, we needed a solution which was a little more feasible than figuring out your closest mirror. Enter the <a href="https://www.fastly.com/">Fastly CDN</a>!</p>
+
+<p><a href="https://www.fastly.com/"><img src="/images/2015/fastly.png" alt="Fastly" /></a></p>
+
+<p>We <a href="https://github.com/gliderlabs/docker-alpine/pull/4">reached out to a couple CDN providers</a> for sponsorship and Fastly gladly offered to support such a cause. A couple quick emails, some light configuration, and we were up and running! Fastly now sponsors an Alpine Linux package CDN at <a href="http://alpine.gliderlabs.com/">http://alpine.gliderlabs.com/</a>. The service is backed by Varnish underneath and gives you access to the very powerful <a href="https://docs.fastly.com/guides/vcl/">Varnish Configuraton Language</a>. This allows us to do fancy things like routing based on geo-location, load balancing between origins, and automatic removal of origins when they become unhealthy.</p>
+
+<p><img src="/images/2015/cdn_speedup.png" alt="Faster with CDN" /></p>
+
+<p>The Fastly CDN is now the default package repository in the <code>gliderlabs/alpine</code> image and may also be used someday in the official <code>alpine</code> image as well. The package repository is not limited to our image or even Docker in any way. Feel free to use it for any Alpine Linux setup!</p>
+
+<p>A big thank you to Fastly and their excellent team for helping us get this sponsorship going. They <a href="https://www.fastly.com/about/open-source">truly care about open source work</a> and we greatly appreciate it.</p>
+
+      <div class="footer">Posted by Andy Shinn. Tagged: alpine, docker</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2015\/fastly-cdn-speeds-up-alpine-package-installs\/';
+    var disqus_title = 'Fastly CDN speeds up Alpine package installs';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2015\/fastly-cdn-speeds-up-alpine-package-installs\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

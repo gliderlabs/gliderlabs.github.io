@@ -1,0 +1,30 @@
+header {
+  background-color: #fff;
+  border-bottom: 1px dashed lightgray;
+  padding-bottom: 4px !important;
+  padding-top: 4px !important;
+}
+
+header .text.menu {
+  margin: 0 !important;
+  height: 80px;
+}
+
+header .text.menu .item {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding-right: 1.2em !important;
+}
+header .text.menu .item a {
+  color: rgba(0,0,0,.7) !important;
+}
+
+header .text.menu .brand img {
+  width: auto !important;
+
+}
+header .text.menu .brand a {
+  width: 300px;
+  margin-left: -10px !important;
+}

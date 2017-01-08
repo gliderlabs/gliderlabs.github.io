@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Build SSH servers now as easy as HTTP servers in Go :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Nov</span>
+          <span class="day">30</span>
+          <span class="year">2016</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2016/easy-ssh-servers/">Build SSH servers now as easy as HTTP servers in Go</a></h1>
+      </div>
+      
+
+<p>My staff and I (read: just <a href="https://github.com/mattaitchison/">Matt</a> and myself)
+have been hard at work building the tooling and infrastructure to bring the
+Glider Labs vision to life. As you&rsquo;ve heard, one of our pilot projects for the
+reboot is <a href="http://gliderlabs.com/devlog/2016/announcing-cmd-io/">Cmd.io</a>, which
+is heavily based on SSH. In fact, I&rsquo;ve worked on a bunch of projects using SSH
+ever since Localtunnel nearly 7 years ago. And now we&rsquo;ve finally been able to
+capture a high-level library for building SSH servers.</p>
+
+<p>It&rsquo;s called <a href="https://github.com/gliderlabs/ssh">gliderlabs/ssh</a>. Here are the <a href="https://godoc.org/github.com/gliderlabs/ssh">GoDocs</a>.</p>
+
+<p>One of the great things about Go is that it actually has <a href="https://godoc.org/golang.org/x/crypto/ssh">an SSH
+package</a> as part of its &ldquo;extended&rdquo;
+standard library. It has a great one-to-one mapping of most of the SSH protocol,
+but as such, it&rsquo;s still pretty low-level. We&rsquo;ve gone through a number of ways to
+organize and build specialized SSH servers with it. Now we&rsquo;ve gotten to the
+point where we understand it well  enough to build a general, high-level SSH
+library on top.</p>
+
+<p>And the best thing? We modeled the API after net/http, so building SSH servers
+is now as easy as building HTTP servers in Go:</p>
+
+<pre><code>package main
+
+import (
+    &quot;io&quot;
+    &quot;github.com/gliderlabs/ssh&quot;
+)
+
+func main() {
+    ssh.Handle(func(s ssh.Session) {
+        io.WriteString(s, &quot;Hello world\n&quot;)
+    })
+
+    log.Fatal(ssh.ListenAndServe(&quot;:2222&quot;, nil))
+}
+</code></pre>
+
+<p>Besides our projects, we&rsquo;ve also collaborated with fellow Gopher and SSH
+protocol enthusiast <a href="https://twitter.com/shazow">@shazow</a>. He&rsquo;s worked on one or
+two SSH projects with us and has his own popular SSH project
+<a href="https://github.com/shazow/ssh-chat">ssh-chat</a>, so it was very helpful to get
+his feedback on this API.</p>
+
+<p>And as I mentioned, we use this in Cmd.io and is one of the first steps towards
+making Cmd.io open source.</p>
+
+<h2 id="sshfront">sshfront</h2>
+
+<p>I know some of you browse our repositories and may have found
+<a href="https://github.com/gliderlabs/sshfront">sshfront</a>, an SSH daemon that calls out
+to your own commands to handle SSH sessions and authentication. It&rsquo;s sort of
+like CGI for SSH. You get this high-performance server daemon and you can script
+how to handle sessions using any language you want by just using standard
+IO.</p>
+
+<p>Since we often need more customization, we haven&rsquo;t used it in many projects, but
+it&rsquo;s great for prototyping. That said, I&rsquo;d be pretty comfortable using it in
+production as well. It&rsquo;s like a simpler, more programmable version of OpenSSH.</p>
+
+<p>Anyway, we haven&rsquo;t touched it in a while, but we could probably reduce its
+codebase to a tenth the size by dropping in gliderlabs/ssh. Perhaps that could
+be an exercise for one of you out there excited to use gliderlabs/ssh?</p>
+
+<p>In any case, enjoy the library and build cool stuff!</p>
+
+      <div class="footer">Posted by Jeff Lindsay. Tagged: announcements, golang</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2016\/easy-ssh-servers\/';
+    var disqus_title = 'Build SSH servers now as easy as HTTP servers in Go';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2016\/easy-ssh-servers\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

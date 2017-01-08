@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A Pattern Emerges :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Mar</span>
+          <span class="day">4</span>
+          <span class="year">2015</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2015/a-pattern-emerges/">A Pattern Emerges</a></h1>
+      </div>
+      <p>It may not be obvious, but Glider Labs is named after the glider pattern in <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&rsquo;s Life</a>. If you&rsquo;re not familiar, Conway&rsquo;s Life is a popular cellular automaton that exhibits how simple rules can lead to complex behavior.</p>
+
+<p>Specifically, Conway&rsquo;s Life is a simple simulation with cells that can either be on or off at each step. Every step, four simple rules are executed dealing with the state of a cell&rsquo;s neighbors. From this, you get what seems to be a disproportionate amount of rich, dynamic behavior.</p>
+
+<p><img src="http://media.giphy.com/media/8Ar9S6zEFjJiU/giphy.gif" alt="Conway's Life" /></p>
+
+<p>Key takeaways from Conway&rsquo;s Life are about complexity and emergence. A well constructed initial pattern of only a few cells in Life can grow into an entire ecosystem of interesting patterns.</p>
+
+<p>A minor change to the initial pattern has a tremendous effect on how the pattern evolves. While the system is deterministic, the dynamics of it are not terribly intuitive. You rarely know how a change will cascade through the lifespan of a Life simulation unless you built it up from scratch yourself.</p>
+
+<p>Murphy&rsquo;s law is an unavoidable truth in operations and reliability engineering. Root cause analysis usually proves major system failures not to be random, but an unexpected series of smaller, cascading failures. This is the nature of failure and predictability in complex systems, and it&rsquo;s fascinating how well this is captured in models like Conway&rsquo;s Life.</p>
+
+<p><img src="http://media.giphy.com/media/tXlpbXfu7e2Pu/giphy.gif" alt="Complex Life system" /></p>
+
+<p>Studying complexity and emergence in Conway&rsquo;s Life also reveals useful truths in designing everyday software systems. Although there are infinite possible simulations in Life, you quickly notice that all complex patterns are made up of just a few simple patterns that keep recurring.</p>
+
+<p>These useful patterns can be arranged in countless ways to compose more complex useful patterns. Complex patterns can then be combined as modules to make even more complex patterns. Sound familiar?</p>
+
+<p>In case these patterns seem pointless, it may be worth mentioning that Conway&rsquo;s Life is <a href="http://jeremykun.com/2011/06/30/turing-machines-and-conways-dreams/">Turing complete</a>. As such, you can implement <a href="https://www.youtube.com/watch?v=xP5-iIeKXE8">Conway&rsquo;s Life in Conway&rsquo;s Life</a>.</p>
+
+<p>This only scratches the surface of what can be gleaned from studying Conway&rsquo;s Life. There are plenty of ways to play with Life simulations, including implementing one yourself. Here&rsquo;s a <a href="http://play.golang.org/p/nr2wehptjW">runnable Go implementation</a> in about 100 lines.</p>
+
+<p>The glider pattern we reference is the smallest traveling pattern in Life, and one of the most useful building blocks. It&rsquo;s often used as a symbol of Conway&rsquo;s Life, but has also been adopted to <a href="http://www.catb.org/hacker-emblem/faqs.html">represent the hacker ethic</a>. This is a convenient symbolic addition for us.</p>
+
+<p>All of this gets at how we think about problems, design systems, and captures the realities of our field. This is why we are Glider Labs.</p>
+
+<p><img src="http://media.giphy.com/media/wErVWADqta2oE/giphy.gif" alt="Glider pattern" /></p>
+
+      <div class="footer">Posted by Jeff Lindsay. Tagged: company</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2015\/a-pattern-emerges\/';
+    var disqus_title = 'A Pattern Emerges';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2015\/a-pattern-emerges\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

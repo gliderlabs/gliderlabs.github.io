@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Devlog :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+  <link href="http://gliderlabs.com/devlog/index.xml" rel="alternate" type="application/rss+xml" title="Glider Labs, Open Source Innovation Lab" />
+  <link href="http://gliderlabs.com/devlog/index.xml" rel="feed" type="application/rss+xml" title="Glider Labs, Open Source Innovation Lab" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+
+<section class="article">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Dec</span>
+                <span class="day">21</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/financial-transparency/">Glider Labs Financial Transparency</a></h1>
+        </div>
+        
+
+<p>I&rsquo;m excited to announce we are now sharing <a href="http://gliderlabs.com/finances/">all of our expenses</a> directly from our books in real-time. This is the first step towards full financial transparency, eventually including income, account balances, even equity contributions. The system is automatic, real-time, and beautifully visualized.</p>
+
+<p>We were heavily influenced by Cushion&rsquo;s <a href="http://cushionapp.com/running-costs/">Running Costs</a> page, so a big thanks to them for the visualization concept. Here&rsquo;s what ours looks like at the time of this post:</p>
+
+<p><a href="http://gliderlabs.com/finances/"><img src="/images/2016/expenses-services.png" alt="Glider Labs 2016 Expenses: Hosted Services" /></a></p>
+
+<p>The visualization is accompanied by a table with more details. We&rsquo;ve split the Running Costs report into three categories for easier consumption: Hosted Services, Staff Costs, and Other. The data includes all of 2016 and will show a rolling window of the last 12 months as we go into 2017.</p>
+
+<h2 id="transparency">Transparency</h2>
+
+<p>I&rsquo;m a big fan of transparency in organizations. Financial transparency in particular captures the state and health of an organization, which usually comes in the form of reports and metrics. When I worked at Twilio, our CEO, Jeff Lawson, would give weekly all-hands meetings. In these he shared how much money was in the bank and discussed what we saw on the internal financial dashboard. This was confidential and employees only, but a nice gesture of transparency.</p>
+
+<p>Financial transparency is especially important for any mission-driven, public benefit organization. When I was a director at <a href="http://www.hackerdojo.com/">Hacker Dojo</a>, we&rsquo;d have monthly meetings open to anybody that shared a typical income and expense report. In the early days, before we had proper bookkeeping, we&rsquo;d screengrab reports from Mint. Ideally, though, our books would always be in good shape and publicly available.</p>
+
+<p>Glider Labs started as a consulting company, but our reboot represents a shift towards an open, public benefit organization. Although I haven&rsquo;t properly communicated our mission yet, it&rsquo;s built around open source and open source values.</p>
+
+<p>Open source and community-run organizations like Hacker Dojo are open and mostly decentralized, allowing anybody to participate. In these cases, transparency is not just about accountability and goodwill. Transparency is necessary for the community to participate and make decisions effectively.</p>
+
+<h2 id="automated-bookkeeping">Automated Bookkeeping</h2>
+
+<p>The only way to get the ideal level of financial transparency is to automate it. I don&rsquo;t just mean making the bookkeeping data available via API. The act of bookkeeping itself needs to be automated as well. In smaller organizations that don&rsquo;t rely on their books for the day-to-day, making reports is often the forcing function to clean up the books and make sure it&rsquo;s all correct. To have continuous reporting like this means ongoing bookkeeping, which traditionally means hiring a bookkeeper.</p>
+
+<p>Perhaps for that reason, most bookkeeping software is not very automation friendly. Especially for the type of automation we have planned. So we decided to make our own. It&rsquo;s a simple double-entry bookkeeping system backed by SQL for data consistency and custom reporting, and speaks JSON over HTTP. It&rsquo;s called Tully, named after <a href="http://ghostbusters.wikia.com/wiki/Louis_Tully">Louis Tully</a> from Ghostbusters.</p>
+
+<p>We took heavy inspiration from <a href="http://www.ledger-cli.org/">Ledger</a> and <a href="http://plaintextaccounting.org/">Ledger-likes</a>. In fact, Tully can import and export Ledger-compatible files, so you can use Ledger with Tully. Also like Ledger, Tully is open source. Or will be, eventually.</p>
+
+<p>The real magic of Tully we&rsquo;ll save for later. For now, we&rsquo;re using an early version of it to power the Finances page.</p>
+
+<p>As a side note, you&rsquo;ll notice we pay for GoDaddy Bookkeeping. Once we do our taxes to verify Tully has parity, we&rsquo;ll switch off of GoDaddy. I actually loathe GoDaddy, but GoDaddy Bookkeping was acquired. It used to be called <a href="http://outright.com/">Outright</a>. Despite being GoDaddy now, it&rsquo;s a great modern, minimal bookkeeping tool. Interestingly, it was originally developed by a founding member of Hacker Dojo, Dean Mao, while at Hacker Dojo.</p>
+
+<h2 id="2016-closing-retrospective">2016 Closing Retrospective</h2>
+
+<p>The timing of all this aligns nicely with the close of 2016. Already we&rsquo;ve received some great questions inspired by the 2016 data on our Finances page. I&rsquo;d love to answer any other questions people have via Twitter (<a href="https://twitter.com/progrium">@progrium</a>), in the comments here, or in <a href="http://slack.gliderlabs.com/">our Slack</a>.</p>
+
+<p>To provide some context for the data, 2016 was a very light year for the business. At our peak in 2015, we had a staff of around 5 people working with several clients at once. When my co-founder, Andy, let himself get burnt out, he left Glider Labs. In a panic I started to reduce our load and planned for time off myself until the end of 2015. During that time I started formulating some of the ideas I have now for Glider Labs.</p>
+
+<p>Going into 2016, in order to pay rent I took on some clients. Although we stopped working with most of our other staff, I wanted to keep Matt around, which also meant taking on clients for him. With the future of Glider Labs uncertain, we basically got by doing the minimal amount of client work.</p>
+
+<p>Then, over the summer, a bunch of events and ideas came together that led to <a href="http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/">the reboot in September</a>. Internally the reboot started at the end of July. It meant we&rsquo;d stop taking client work and focus on innovating in open source. I know that&rsquo;s vague, but the point is we had to economize and shift the business towards a different model. So you can see August to September we started reducing our costs and our AWS activity started going up.</p>
+
+<p>We can probably reduce our costs even more. Another great benefit of this transparency is that we can get suggestions for reducing our costs. For example, our friend Jo&euml;l mentioned in Slack using Let&rsquo;s Encrypt instead of SSLMate. It turns out we already started using Let&rsquo;s Encrypt but only after our renewal with SSLMate. One thing Cushion has that we don&rsquo;t yet is an explanation for our costs. Hopefully that will come in time as well.</p>
+
+<p>That&rsquo;s about it for now. Definitely looking forward to 2017. Enjoy the holidays!</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/financial-transparency/">Comments »</a></p>
+      </article>
+    </div>
+    <div class="four wide column">
+      <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+
+<section class="article below alt">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Nov</span>
+                <span class="day">30</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/easy-ssh-servers/">Build SSH servers now as easy as HTTP servers in Go</a></h1>
+        </div>
+        <p>My staff and I (read: just <a href="https://github.com/mattaitchison/">Matt</a> and myself)
+have been hard at work building the tooling and infrastructure to bring the
+Glider Labs vision to life. As you&rsquo;ve heard, one of our pilot projects for the
+reboot is <a href="http://gliderlabs.com/devlog/2016/announcing-cmd-io/">Cmd.io</a>, which
+is heavily based on SSH. In fact, I&rsquo;ve worked on a bunch of projects using SSH
+ever since Localtunnel nearly 7 years ago. And now we&rsquo;ve finally been able to
+capture a high-level library for building SSH servers.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/easy-ssh-servers/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Sep</span>
+                <span class="day">29</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/">Rebooting Glider Labs</a></h1>
+        </div>
+        <p>Well I said I&rsquo;d post more about the Glider Labs reboot this month and I&rsquo;m about out of time. In lieu of my planned announcement, we&rsquo;re going to have to settle with this post. I had planned to kill a few birds with one stone with the reboot announcement:</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below alt">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Sep</span>
+                <span class="day">7</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/test-dev-setup/">Testing your project&#39;s development setup</a></h1>
+        </div>
+        <p>There are usually hidden assumptions about your project&rsquo;s development environment that you don&rsquo;t find out about until somebody else tries to setup the project. Very much like the first pass at a user interface.</p>
+
+<p>In this case I&rsquo;m not talking about installing or using your project, but setting it up for development. Onboarding new contributors. The bigger the project or the more languages involved, the more this can be an issue.</p>
+
+<p>We&rsquo;ve probably all noticed this problem before. Once everybody is setup for a project, nobody knows for sure what breaks a new setup. The answer should be obvious: test it.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/test-dev-setup/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Sep</span>
+                <span class="day">1</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/announcing-cmd-io/">Commands as a Service with Cmd.io</a></h1>
+        </div>
+        <p>Today I&rsquo;m excited to announce a soon-to-be-released, eventually open source
+product for developers, operators, and power users. It&rsquo;s called Cmd.io, or
+&ldquo;Command IO&rdquo; as we pronounce it. Cmd.io will let you use and share commands for
+the terminal, as a service, over SSH.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/announcing-cmd-io/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below alt">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Aug</span>
+                <span class="day">29</span>
+                <span class="year">2016</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/">Quiet Accomplishments of Glider Labs v1</a></h1>
+        </div>
+        <p>Next month I&rsquo;ll be announcing the details of a reboot of Glider Labs. Since starting this company in 2014, we&rsquo;ve been primarily focused on consulting services. However, our biggest impact has come from our open source projects. Despite not having the resources to properly support these projects, Glider Labs has quietly achieved a significant user base from these intentionally simple components.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Apr</span>
+                <span class="day">29</span>
+                <span class="year">2015</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2015/build-simple-systems-to-build-good-systems/">Build simple systems to build good systems</a></h1>
+        </div>
+        <p>We often talk about complexity in software systems, but for some reason we don&rsquo;t seem to talk enough about simplicity. I was quite happy to find that Rich Hickey&rsquo;s keynote at Strange Loop 2011 focused on simplicity.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2015/build-simple-systems-to-build-good-systems/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below alt">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Apr</span>
+                <span class="day">8</span>
+                <span class="year">2015</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/">What have we been doing for 40 years?</a></h1>
+        </div>
+        <p><img src="/images/2015/xerox_parc_1975.jpg" title="Xerox PARC, 1975 via Computer History Museum" /></p>
+
+<p>Desktop computing, graphical user interfaces, object-oriented programming, laser printing, Ethernet. Pillars of modern computing invented by only 25 people over 5 years at one place: Xerox PARC.</p>
+
+<p>Unix and C. Foundations of modern systems software initially developed by just 2 people over 3 years at one place: Bell Labs.</p>
+
+<p>Both happened in the early 1970s. <em>That was over 40 years ago.</em> What exactly have the rest of us been doing since?</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Mar</span>
+                <span class="day">24</span>
+                <span class="year">2015</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/">The Modern Systems Software Mess</a></h1>
+        </div>
+        <p>In August 2000, while Rob Pike was still at Bell Labs and before he co-developed Go, he gave a talk called <a href="http://doc.cat-v.org/bell_labs/utah2000/">Systems Software Research is Irrelevant</a>. Today the situation is perhaps not as dire. At the very least, his examples are noticeably dated. However, many of his points remain true and point at systemic roadblocks to better systems software.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="article below alt">
+  <div class="ui container grid">
+    <div class="twelve wide column">
+      <article>
+        <div class="meta">
+            <div class="date">
+                <span class="month">Mar</span>
+                <span class="day">4</span>
+                <span class="year">2015</span>
+            </div>
+        </div>
+        <div class="ui header">
+          <h1><a href="http://gliderlabs.com/devlog/2015/a-pattern-emerges/">A Pattern Emerges</a></h1>
+        </div>
+        <p>It may not be obvious, but Glider Labs is named after the glider pattern in <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway&rsquo;s Life</a>. If you&rsquo;re not familiar, Conway&rsquo;s Life is a popular cellular automaton that exhibits how simple rules can lead to complex behavior.</p>
+
+        <p class="small"><a href="http://gliderlabs.com/devlog/2015/a-pattern-emerges/">Read more »</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/</link>
+    <description>Recent content on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Dec 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Glider Labs Financial Transparency</title>
+      <link>http://gliderlabs.com/devlog/2016/financial-transparency/</link>
+      <pubDate>Wed, 21 Dec 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/financial-transparency/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m excited to announce we are now sharing &lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;all of our expenses&lt;/a&gt; directly from our books in real-time. This is the first step towards full financial transparency, eventually including income, account balances, even equity contributions. The system is automatic, real-time, and beautifully visualized.&lt;/p&gt;
+
+&lt;p&gt;We were heavily influenced by Cushion&amp;rsquo;s &lt;a href=&#34;http://cushionapp.com/running-costs/&#34;&gt;Running Costs&lt;/a&gt; page, so a big thanks to them for the visualization concept. Here&amp;rsquo;s what ours looks like at the time of this post:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;&lt;img src=&#34;http://gliderlabs.com/images/2016/expenses-services.png&#34; alt=&#34;Glider Labs 2016 Expenses: Hosted Services&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The visualization is accompanied by a table with more details. We&amp;rsquo;ve split the Running Costs report into three categories for easier consumption: Hosted Services, Staff Costs, and Other. The data includes all of 2016 and will show a rolling window of the last 12 months as we go into 2017.&lt;/p&gt;
+
+&lt;h2 id=&#34;transparency&#34;&gt;Transparency&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m a big fan of transparency in organizations. Financial transparency in particular captures the state and health of an organization, which usually comes in the form of reports and metrics. When I worked at Twilio, our CEO, Jeff Lawson, would give weekly all-hands meetings. In these he shared how much money was in the bank and discussed what we saw on the internal financial dashboard. This was confidential and employees only, but a nice gesture of transparency.&lt;/p&gt;
+
+&lt;p&gt;Financial transparency is especially important for any mission-driven, public benefit organization. When I was a director at &lt;a href=&#34;http://www.hackerdojo.com/&#34;&gt;Hacker Dojo&lt;/a&gt;, we&amp;rsquo;d have monthly meetings open to anybody that shared a typical income and expense report. In the early days, before we had proper bookkeeping, we&amp;rsquo;d screengrab reports from Mint. Ideally, though, our books would always be in good shape and publicly available.&lt;/p&gt;
+
+&lt;p&gt;Glider Labs started as a consulting company, but our reboot represents a shift towards an open, public benefit organization. Although I haven&amp;rsquo;t properly communicated our mission yet, it&amp;rsquo;s built around open source and open source values.&lt;/p&gt;
+
+&lt;p&gt;Open source and community-run organizations like Hacker Dojo are open and mostly decentralized, allowing anybody to participate. In these cases, transparency is not just about accountability and goodwill. Transparency is necessary for the community to participate and make decisions effectively.&lt;/p&gt;
+
+&lt;h2 id=&#34;automated-bookkeeping&#34;&gt;Automated Bookkeeping&lt;/h2&gt;
+
+&lt;p&gt;The only way to get the ideal level of financial transparency is to automate it. I don&amp;rsquo;t just mean making the bookkeeping data available via API. The act of bookkeeping itself needs to be automated as well. In smaller organizations that don&amp;rsquo;t rely on their books for the day-to-day, making reports is often the forcing function to clean up the books and make sure it&amp;rsquo;s all correct. To have continuous reporting like this means ongoing bookkeeping, which traditionally means hiring a bookkeeper.&lt;/p&gt;
+
+&lt;p&gt;Perhaps for that reason, most bookkeeping software is not very automation friendly. Especially for the type of automation we have planned. So we decided to make our own. It&amp;rsquo;s a simple double-entry bookkeeping system backed by SQL for data consistency and custom reporting, and speaks JSON over HTTP. It&amp;rsquo;s called Tully, named after &lt;a href=&#34;http://ghostbusters.wikia.com/wiki/Louis_Tully&#34;&gt;Louis Tully&lt;/a&gt; from Ghostbusters.&lt;/p&gt;
+
+&lt;p&gt;We took heavy inspiration from &lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;Ledger&lt;/a&gt; and &lt;a href=&#34;http://plaintextaccounting.org/&#34;&gt;Ledger-likes&lt;/a&gt;. In fact, Tully can import and export Ledger-compatible files, so you can use Ledger with Tully. Also like Ledger, Tully is open source. Or will be, eventually.&lt;/p&gt;
+
+&lt;p&gt;The real magic of Tully we&amp;rsquo;ll save for later. For now, we&amp;rsquo;re using an early version of it to power the Finances page.&lt;/p&gt;
+
+&lt;p&gt;As a side note, you&amp;rsquo;ll notice we pay for GoDaddy Bookkeeping. Once we do our taxes to verify Tully has parity, we&amp;rsquo;ll switch off of GoDaddy. I actually loathe GoDaddy, but GoDaddy Bookkeping was acquired. It used to be called &lt;a href=&#34;http://outright.com/&#34;&gt;Outright&lt;/a&gt;. Despite being GoDaddy now, it&amp;rsquo;s a great modern, minimal bookkeeping tool. Interestingly, it was originally developed by a founding member of Hacker Dojo, Dean Mao, while at Hacker Dojo.&lt;/p&gt;
+
+&lt;h2 id=&#34;2016-closing-retrospective&#34;&gt;2016 Closing Retrospective&lt;/h2&gt;
+
+&lt;p&gt;The timing of all this aligns nicely with the close of 2016. Already we&amp;rsquo;ve received some great questions inspired by the 2016 data on our Finances page. I&amp;rsquo;d love to answer any other questions people have via Twitter (&lt;a href=&#34;https://twitter.com/progrium&#34;&gt;@progrium&lt;/a&gt;), in the comments here, or in &lt;a href=&#34;http://slack.gliderlabs.com/&#34;&gt;our Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To provide some context for the data, 2016 was a very light year for the business. At our peak in 2015, we had a staff of around 5 people working with several clients at once. When my co-founder, Andy, let himself get burnt out, he left Glider Labs. In a panic I started to reduce our load and planned for time off myself until the end of 2015. During that time I started formulating some of the ideas I have now for Glider Labs.&lt;/p&gt;
+
+&lt;p&gt;Going into 2016, in order to pay rent I took on some clients. Although we stopped working with most of our other staff, I wanted to keep Matt around, which also meant taking on clients for him. With the future of Glider Labs uncertain, we basically got by doing the minimal amount of client work.&lt;/p&gt;
+
+&lt;p&gt;Then, over the summer, a bunch of events and ideas came together that led to &lt;a href=&#34;http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/&#34;&gt;the reboot in September&lt;/a&gt;. Internally the reboot started at the end of July. It meant we&amp;rsquo;d stop taking client work and focus on innovating in open source. I know that&amp;rsquo;s vague, but the point is we had to economize and shift the business towards a different model. So you can see August to September we started reducing our costs and our AWS activity started going up.&lt;/p&gt;
+
+&lt;p&gt;We can probably reduce our costs even more. Another great benefit of this transparency is that we can get suggestions for reducing our costs. For example, our friend Jo&amp;euml;l mentioned in Slack using Let&amp;rsquo;s Encrypt instead of SSLMate. It turns out we already started using Let&amp;rsquo;s Encrypt but only after our renewal with SSLMate. One thing Cushion has that we don&amp;rsquo;t yet is an explanation for our costs. Hopefully that will come in time as well.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s about it for now. Definitely looking forward to 2017. Enjoy the holidays!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Build SSH servers now as easy as HTTP servers in Go</title>
+      <link>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</link>
+      <pubDate>Wed, 30 Nov 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</guid>
+      <description>
+
+&lt;p&gt;My staff and I (read: just &lt;a href=&#34;https://github.com/mattaitchison/&#34;&gt;Matt&lt;/a&gt; and myself)
+have been hard at work building the tooling and infrastructure to bring the
+Glider Labs vision to life. As you&amp;rsquo;ve heard, one of our pilot projects for the
+reboot is &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;Cmd.io&lt;/a&gt;, which
+is heavily based on SSH. In fact, I&amp;rsquo;ve worked on a bunch of projects using SSH
+ever since Localtunnel nearly 7 years ago. And now we&amp;rsquo;ve finally been able to
+capture a high-level library for building SSH servers.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s called &lt;a href=&#34;https://github.com/gliderlabs/ssh&#34;&gt;gliderlabs/ssh&lt;/a&gt;. Here are the &lt;a href=&#34;https://godoc.org/github.com/gliderlabs/ssh&#34;&gt;GoDocs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One of the great things about Go is that it actually has &lt;a href=&#34;https://godoc.org/golang.org/x/crypto/ssh&#34;&gt;an SSH
+package&lt;/a&gt; as part of its &amp;ldquo;extended&amp;rdquo;
+standard library. It has a great one-to-one mapping of most of the SSH protocol,
+but as such, it&amp;rsquo;s still pretty low-level. We&amp;rsquo;ve gone through a number of ways to
+organize and build specialized SSH servers with it. Now we&amp;rsquo;ve gotten to the
+point where we understand it well  enough to build a general, high-level SSH
+library on top.&lt;/p&gt;
+
+&lt;p&gt;And the best thing? We modeled the API after net/http, so building SSH servers
+is now as easy as building HTTP servers in Go:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+    &amp;quot;io&amp;quot;
+    &amp;quot;github.com/gliderlabs/ssh&amp;quot;
+)
+
+func main() {
+    ssh.Handle(func(s ssh.Session) {
+        io.WriteString(s, &amp;quot;Hello world\n&amp;quot;)
+    })
+
+    log.Fatal(ssh.ListenAndServe(&amp;quot;:2222&amp;quot;, nil))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Besides our projects, we&amp;rsquo;ve also collaborated with fellow Gopher and SSH
+protocol enthusiast &lt;a href=&#34;https://twitter.com/shazow&#34;&gt;@shazow&lt;/a&gt;. He&amp;rsquo;s worked on one or
+two SSH projects with us and has his own popular SSH project
+&lt;a href=&#34;https://github.com/shazow/ssh-chat&#34;&gt;ssh-chat&lt;/a&gt;, so it was very helpful to get
+his feedback on this API.&lt;/p&gt;
+
+&lt;p&gt;And as I mentioned, we use this in Cmd.io and is one of the first steps towards
+making Cmd.io open source.&lt;/p&gt;
+
+&lt;h2 id=&#34;sshfront&#34;&gt;sshfront&lt;/h2&gt;
+
+&lt;p&gt;I know some of you browse our repositories and may have found
+&lt;a href=&#34;https://github.com/gliderlabs/sshfront&#34;&gt;sshfront&lt;/a&gt;, an SSH daemon that calls out
+to your own commands to handle SSH sessions and authentication. It&amp;rsquo;s sort of
+like CGI for SSH. You get this high-performance server daemon and you can script
+how to handle sessions using any language you want by just using standard
+IO.&lt;/p&gt;
+
+&lt;p&gt;Since we often need more customization, we haven&amp;rsquo;t used it in many projects, but
+it&amp;rsquo;s great for prototyping. That said, I&amp;rsquo;d be pretty comfortable using it in
+production as well. It&amp;rsquo;s like a simpler, more programmable version of OpenSSH.&lt;/p&gt;
+
+&lt;p&gt;Anyway, we haven&amp;rsquo;t touched it in a while, but we could probably reduce its
+codebase to a tenth the size by dropping in gliderlabs/ssh. Perhaps that could
+be an exercise for one of you out there excited to use gliderlabs/ssh?&lt;/p&gt;
+
+&lt;p&gt;In any case, enjoy the library and build cool stuff!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rebooting Glider Labs</title>
+      <link>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</link>
+      <pubDate>Thu, 29 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</guid>
+      <description>&lt;p&gt;Well I said I&amp;rsquo;d post more about the Glider Labs reboot this month and I&amp;rsquo;m about out of time. In lieu of my planned announcement, we&amp;rsquo;re going to have to settle with this post. I had planned to kill a few birds with one stone with the reboot announcement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Explain where we are going&lt;/li&gt;
+&lt;li&gt;Explain how we intend to do it sustainably&lt;/li&gt;
+&lt;li&gt;Set up financial transparency&lt;/li&gt;
+&lt;li&gt;Announce three new projects&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was too much to finish so quickly. We did &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;announce Cmd.io&lt;/a&gt; but the other two projects are not ready to be announced, except to a few friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;Why three projects? I wanted to make it clear that no single project is the focus of Glider Labs. They&amp;rsquo;d also be different enough to show that it&amp;rsquo;s bigger than just one kind of project. Although before the reboot you might consider Glider Labs a &amp;ldquo;DevOps&amp;rdquo; company, that&amp;rsquo;s no longer the case even if we still have existing and planned projects that fall into that category.&lt;/p&gt;
+
+&lt;p&gt;I should explain some quick background. I started Glider Labs with a friend a few years ago. It started as a sort of lifestyle consulting business, but since it leveraged a lot of my open source work, I was keen on it someday pivoting into a sort of open source R&amp;amp;D lab. Basically a place where I could sustainably do my life&amp;rsquo;s work and ideally the work of my like-minded, similarly independent friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;It almost didn&amp;rsquo;t happen, and we almost shut down entirely. Then, somehow the planets aligned and I&amp;rsquo;d been afforded a chance to shoot for the moon, so to speak.&lt;/p&gt;
+
+&lt;p&gt;What I&amp;rsquo;m going to be doing with Glider Labs is not an easy plan to explain. My first attempt was with what I called &lt;a href=&#34;http://progrium.com/blog/2015/10/05/the-next-10-years-megalith/&#34;&gt;Megalith&lt;/a&gt;. Unfortunately, it intrigued people but gave no indication of what it was. Almost a year has gone by and I can start to explain it better now, but it&amp;rsquo;s definitely not down to a soundbite I&amp;rsquo;m happy with.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m pretty sure at this point the core idea is about automation and programmability. I wrote a bit about &lt;a href=&#34;http://progrium.com/blog/2016/04/25/generativity/&#34;&gt;generativity&lt;/a&gt; as an important foundation, and I started to reframe this path as a mission to make the world more &lt;a href=&#34;http://progrium.com/wiki/Programmability/&#34;&gt;programmable&lt;/a&gt;. But these are sort of nuanced ideas that aren&amp;rsquo;t well known, so they don&amp;rsquo;t make for a great explanation. Just recently, though, it hit me: automation. Not just automation, but &lt;em&gt;systemically democratized automation&lt;/em&gt;. That&amp;rsquo;s what it&amp;rsquo;s about.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d love to try and explain what I mean by that, but this post would quickly get out of control. I will say it&amp;rsquo;s not about AI, but it can involve AI. It&amp;rsquo;s not about bots, but involves and powers bots. It&amp;rsquo;s not about end-user programming, but end-user programming is a subversive part of it. It&amp;rsquo;s not about devops, but it both relies on and pushes devops further. It&amp;rsquo;s definitely not about cryptocurrency, but one aspect hugely overlaps with the idea of a &lt;a href=&#34;https://en.wikipedia.org/wiki/Decentralized_autonomous_organization&#34;&gt;DAO&lt;/a&gt;. I could go on, but my intention isn&amp;rsquo;t to throw buzzwords at you, but help convey how deep this goes.&lt;/p&gt;
+
+&lt;p&gt;A few people I know that have absorbed enough of it have mentioned how much it echoes of &lt;a href=&#34;https://en.wikipedia.org/wiki/Douglas_Engelbart&#34;&gt;Douglas Engelbart&amp;rsquo;s&lt;/a&gt; work, at least in scope and intention (&amp;ldquo;augmenting human capability&amp;rdquo;). I&amp;rsquo;ve also rather intentionally borrowed a lot of his ideas in approach, most significantly, using the system to build the system (&amp;ldquo;bootstrapping&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;All this said, it&amp;rsquo;s easier to build and show than to explain up front, and better to show proof than make lofty sounding promises. That&amp;rsquo;s why I wanted to at least announce and demo some of the projects with our reboot announcement. However, we&amp;rsquo;ll just have to wait a bit longer. There&amp;rsquo;s plenty of time.&lt;/p&gt;
+
+&lt;p&gt;So there we are. I didn&amp;rsquo;t quite achieve what I wanted to with this announcement, but I&amp;rsquo;m very excited. Over the next &amp;hellip; well for the foreseeable future you&amp;rsquo;ll see more announcements, more details, and over time the plan will reveal itself regardless of what I was able to communicate.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/devlog/2015/a-pattern-emerges/&#34;&gt;A pattern will emerge.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Testing your project&#39;s development setup</title>
+      <link>http://gliderlabs.com/devlog/2016/test-dev-setup/</link>
+      <pubDate>Wed, 07 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/test-dev-setup/</guid>
+      <description>&lt;p&gt;There are usually hidden assumptions about your project&amp;rsquo;s development environment that you don&amp;rsquo;t find out about until somebody else tries to setup the project. Very much like the first pass at a user interface.&lt;/p&gt;
+
+&lt;p&gt;In this case I&amp;rsquo;m not talking about installing or using your project, but setting it up for development. Onboarding new contributors. The bigger the project or the more languages involved, the more this can be an issue.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve probably all noticed this problem before. Once everybody is setup for a project, nobody knows for sure what breaks a new setup. The answer should be obvious: test it.&lt;/p&gt;
+
+&lt;p&gt;You might be thinking VMs or Vagrant, but Docker is really the best solution here.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Wait,&amp;rdquo; you say, &amp;ldquo;shouldn&amp;rsquo;t you already just be developing your app in Docker?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Maybe, though honestly, it&amp;rsquo;s not always worth it. It&amp;rsquo;s great to be able to build the production image and try it locally, but development can be a very different build and workflow. In some cases, Dockerizing the development workflow is more work and too much of a hit on contributor UX than it&amp;rsquo;s worth.&lt;/p&gt;
+
+&lt;p&gt;If you do use Docker for development, you&amp;rsquo;re basically already testing your environment. If you don&amp;rsquo;t for whatever reason, testing setup is a good excuse to make a development-oriented Dockerfile anyway. Not necessarily to use, just to use as a test.&lt;/p&gt;
+
+&lt;p&gt;The base image doesn&amp;rsquo;t have to be the same as production or development, though it&amp;rsquo;s a good idea to at least match production. We use Alpine because it&amp;rsquo;s small and fast to install packages, and we happen to also use Alpine for production images.&lt;/p&gt;
+
+&lt;p&gt;The fact it&amp;rsquo;s different from development doesn&amp;rsquo;t matter a huge amount in practice. People are going to have different platforms anyway. Mac, Linux, different distros, different versions. As long as you&amp;rsquo;re installing the same versions of packages you need, it&amp;rsquo;s a pretty good approximation. This Dockerfile can then become the reference for what needs to go into, for example, a Brewfile.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t expect it to be fast for larger projects, but using Docker and Alpine will make it pretty fast. I don&amp;rsquo;t run this test all the time during development. I only run it when I&amp;rsquo;m changing files that affect the dev environment setup. Then I run &lt;code&gt;make test-env&lt;/code&gt;, which simply builds the Dockerfile.&lt;/p&gt;
+
+&lt;p&gt;If the build fails, the test has failed. If it builds without error, the test has passed. Now if you were to, for example, add a JavaScript dependency but forget to add it to &lt;code&gt;package.json&lt;/code&gt;, you&amp;rsquo;d find out from this test.&lt;/p&gt;
+
+&lt;p&gt;You might also run the tests or do the build as part of this Dockerfile. Ideally, you&amp;rsquo;d also run your development runner or harness in the image build if you have one. That can be tricky because they run indefinitely. Adding a timeout to the runner so it exits after a given time if provided handles that. Now you&amp;rsquo;ll know it builds, but more importantly that the development harness runs.&lt;/p&gt;
+
+&lt;p&gt;We make sure the CI always runs this test. In fact, then we also run the usual CI tests using that container. We usually want to run CI tests in Docker anyway because it makes for a much simpler and debuggable CI setup. It&amp;rsquo;s sort of convenient that our environment test is actually just a build. Here is a &lt;code&gt;circle.yml&lt;/code&gt; for one of our projects:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t automata -f dev/setup/Dockerfile .
+
+test:
+  override:
+    - docker run automata /bin/sh -c &amp;quot;make test&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ve not run into many people that talk about testing their project development setup. I assume this means most aren&amp;rsquo;t doing it. Though if you develop in Docker, you&amp;rsquo;re already mostly doing it, maybe without realizing.&lt;/p&gt;
+
+&lt;p&gt;Whether or not you develop in Docker, though, after having a number of onboarding blunders, this now saves us from maybe 95% of them. We know with that level of certainty, given you have XYZ tools installed (which we check for), that anybody will get a working development environment with &lt;code&gt;make setup&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;YMMV ;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Commands as a Service with Cmd.io</title>
+      <link>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</link>
+      <pubDate>Thu, 01 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;m excited to announce a soon-to-be-released, eventually open source
+product for developers, operators, and power users. It&amp;rsquo;s called Cmd.io, or
+&amp;ldquo;Command IO&amp;rdquo; as we pronounce it. Cmd.io will let you use and share commands for
+the terminal, as a service, over SSH.&lt;/p&gt;
+
+&lt;p&gt;With Cmd.io you can make or install command-line utilities that you can use
+from anyplace with an SSH client. Commands are run in a consistent environment
+that you configure specifically for you or your team. You can share access to
+your commands, allowing friends and colleagues to run them as well. This is
+great for letting anybody on your team kick off build or deployment automations
+right from their terminal. But this is only the beginning!&lt;/p&gt;
+
+&lt;p&gt;In the demo video below, we use &lt;code&gt;jq&lt;/code&gt; as a service, build a PDF with LaTeX
+without installing it, provision cloud resources using
+Terraform with no configuration or credentials, and
+turn &lt;code&gt;git push&lt;/code&gt; into a powerful, programmable automation tool.&lt;/p&gt;
+
+&lt;div class=&#34;ui embed&#34; data-source=&#34;vimeo&#34; data-id=&#34;181089646&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;As mentioned in our &lt;a href=&#34;http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/&#34;&gt;last
+post&lt;/a&gt;, we&amp;rsquo;ll be &amp;ldquo;rebooting&amp;rdquo;
+Glider Labs this month to focus on a number of innovative tools like this. More
+on that soon. We just couldn&amp;rsquo;t wait to give you a preview of what&amp;rsquo;s to come.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re excited by Cmd.io you can subscribe with the link below to hear when it&amp;rsquo;s
+available and possibly get early access. Otherwise,
+let me know what you think in the comments, including ideas you might have for
+how you&amp;rsquo;d use it.&lt;/p&gt;
+
+&lt;div class=&#34;ui info message&#34;&gt;
+  &lt;i class=&#34;mail icon&#34;&gt;&lt;/i&gt;&lt;a href=&#34;http://eepurl.com/cdWjaX&#34;&gt;Subscribe&lt;/a&gt;
+  to be notified when Cmd.io comes online.
+
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quiet Accomplishments of Glider Labs v1</title>
+      <link>http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/</link>
+      <pubDate>Mon, 29 Aug 2016 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/</guid>
+      <description>
+
+&lt;p&gt;Next month I&amp;rsquo;ll be announcing the details of a reboot of Glider Labs. Since starting this company in 2014, we&amp;rsquo;ve been primarily focused on consulting services. However, our biggest impact has come from our open source projects. Despite not having the resources to properly support these projects, Glider Labs has quietly achieved a significant user base from these intentionally simple components.&lt;/p&gt;
+
+&lt;p&gt;We don&amp;rsquo;t have a marketing budget and we barely have time to even maintain these projects. At our peak there had been five of us part-time, but for the bulk of our existence it has just been two of us. Yet over the past couple years these projects have received tens of millions of downloads and are some of the most popular projects in the Docker ecosystem.&lt;/p&gt;
+
+&lt;h2 id=&#34;registrator&#34;&gt;Registrator&lt;/h2&gt;
+
+&lt;p&gt;Before &lt;a href=&#34;https://github.com/gliderlabs/registrator&#34;&gt;Registrator&lt;/a&gt; you had to make your service register itself with a service registry, or configure and run a second service with every service to register it. Registrator makes service discovery easy by automatically registering services run in Docker.&lt;/p&gt;
+
+&lt;p&gt;Registrator has been downloaded on Docker Hub over 20 million times. It&amp;rsquo;s currently the &lt;strong&gt;10th most downloaded image&lt;/strong&gt; on Docker Hub. Registrator is used by several Fortune 500 companies, in some cases directly and in some cases via larger projects that use Registrator.&lt;/p&gt;
+
+&lt;h2 id=&#34;logspout&#34;&gt;Logspout&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/gliderlabs/logspout&#34;&gt;Logspout&lt;/a&gt; simply collects Docker container logs and routes them somewhere else. It has become the most popular Docker log handler. According to &lt;a href=&#34;https://www.datadoghq.com/docker-adoption/&#34;&gt;a report by Datadog&lt;/a&gt; earlier this year, based on their users using Docker, Logspout is the &lt;strong&gt;6th most popular image&lt;/strong&gt; run in Docker. This doesn&amp;rsquo;t even capture the customized images people run to use 3rd party log drivers.&lt;/p&gt;
+
+&lt;p&gt;Docker Hub today reports 249 &lt;em&gt;public&lt;/em&gt; images with Logspout in the name. Our official Logspout image is reported to have been pulled over 15 million times. Apparently Docker Hub reporting gets quite nebulous with high numbers, however we know it is the 18th most downloaded image on Docker Hub.&lt;/p&gt;
+
+&lt;h2 id=&#34;alpine-linux&#34;&gt;Alpine Linux&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re not responsible for Alpine Linux, but we did popularize it in the Docker community with a &lt;a href=&#34;https://github.com/gliderlabs/docker-alpine&#34;&gt;general purpose base image&lt;/a&gt;. It is the smallest Linux distribution with a very extensive and up-to-date package library. After our &lt;code&gt;gliderlabs/alpine&lt;/code&gt; image started to become popular, we submitted it to the official Docker Library, making us responsible for the &lt;code&gt;alpine&lt;/code&gt; Docker image. However, since Docker later hired Alpine creator Nathanel Copa, we don&amp;rsquo;t get much credit for it.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, Alpine is becoming one of the most popular base images used in the Docker ecosystem. Docker themselves recently moved many of their official images to Alpine.&lt;/p&gt;
+
+&lt;p&gt;The Alpine Linux image has also received over 10 million direct pulls, but is probably more widely used as the base image for many public and private images. We can&amp;rsquo;t easily measure its true usage, but anecdotally, we talked to nearly every vendor at DockerCon 2015 and even then over half of them were using Alpine. We even noticed most of the talks and demos by Docker employees were using Alpine.&lt;/p&gt;
+
+&lt;h2 id=&#34;other-achievements&#34;&gt;Other Achievements&lt;/h2&gt;
+
+&lt;p&gt;We could talk about some of the clients we&amp;rsquo;ve worked with. Perhaps even more impressive are the clients we&amp;rsquo;ve turned away. But, when we find the time for them, it&amp;rsquo;s the tools we build that we&amp;rsquo;re most proud of. We have over 20 &lt;a href=&#34;http://gliderlabs.com/projects/&#34;&gt;other open source projects&lt;/a&gt;. Most of which, we haven&amp;rsquo;t even announced.&lt;/p&gt;
+
+&lt;p&gt;Glider Labs inherited some of these projects from me. I&amp;rsquo;ve been working in the Docker ecosystem since helping develop Docker itself. Immediately after, I built the first killer application for Docker, an open source single-host Heroku called &lt;a href=&#34;https://github.com/dokku/dokku&#34;&gt;Dokku&lt;/a&gt;. It&amp;rsquo;s still one of the most popular PaaS projects, with its own ecosystem of plugins and subprojects, thanks its wonderful maintainers.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve also worked with a lot of companies in the Docker scene. And we still occasionally work with Docker. We helped architect and implement the initial Docker plugin system. Through sponsorships, we&amp;rsquo;ve contributed to other projects as well. For example, we added multi-region support to the AWS provider in Terraform, thanks to a sponsorship from Cisco.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-next&#34;&gt;What Next&lt;/h2&gt;
+
+&lt;p&gt;This upcoming reboot will put a focus on our open source work. We&amp;rsquo;ll also be taking it to a new level, working a bit higher up the stack. We&amp;rsquo;re not going to be able to do it without your support, so I hope that if you&amp;rsquo;ve benefited from our work so far, you&amp;rsquo;ll consider helping out however you can. Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Build simple systems to build good systems</title>
+      <link>http://gliderlabs.com/devlog/2015/build-simple-systems-to-build-good-systems/</link>
+      <pubDate>Wed, 29 Apr 2015 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/build-simple-systems-to-build-good-systems/</guid>
+      <description>&lt;p&gt;We often talk about complexity in software systems, but for some reason we don&amp;rsquo;t seem to talk enough about simplicity. I was quite happy to find that Rich Hickey&amp;rsquo;s keynote at Strange Loop 2011 focused on simplicity.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://www.infoq.com/presentations/Simple-Made-Easy&#34;&gt;Rich Hickey - Simple Made Easy on InfoQ&lt;/a&gt;&lt;/strong&gt; (&lt;a href=&#34;https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md&#34;&gt;transcript&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Simple Made Easy is about Hickey&amp;rsquo;s exploration of what simple really means, what it doesn&amp;rsquo;t mean, and how that can be used as a guide towards simplicity in software.&lt;/p&gt;
+
+&lt;p&gt;Most experienced programmers know that simplicity is difficult to achieve. Perhaps part of the reason for this is that simplicity seems to be somewhat subjective. Here, Hickey explains a framework to more objectively identify how simple a design is.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;http://gliderlabs.com/images/2015/simple_made_easy.jpg&#34; alt=&#34;Simple as not interleaved&#34; /&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;He starts with the etymology of simple. It describes a meaning around the amount of &lt;em&gt;interleaving&lt;/em&gt;. What&amp;rsquo;s interesting is that this interpretation of simplicity is not about the number of elements, just how interleaved they are.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Simplicity is not about counting. I&amp;rsquo;d rather have more things hanging nice, straight down, not twisted together, than just a couple of things tied in a knot.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To help with this particular meaning of simple, he shares an archaic word that is specifically the opposite of this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;complect&lt;/strong&gt; - to interleave, entwine, or braid&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;By using complecting as our primary anti-pattern, we can more easily see a path towards simplicity than the vague notion of &amp;ldquo;avoiding complexity.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;He also identifies that simple is not the same as easy, despite many using those words interchangeably. While easy is ultimately relative, simple in these terms has some objectivity to it. We can ask, &amp;ldquo;How much interleaving is there?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;The talk goes over a number tactical approaches to simplicity by not complecting, but there&amp;rsquo;s also wisdom shared around the value of simplicity.&lt;/p&gt;
+
+&lt;p&gt;Perhaps the biggest issue with complexity is that it undermines understanding your software. He makes the point that understanding is the real key to making changes quickly in software.&lt;/p&gt;
+
+&lt;p&gt;Conventional wisdom says testing is how we can make changes quickly. While there is clearly value in testing, the popular notion that test coverage above all else is what you need to move quickly is challenged by Hickey. He calls it guardrail programming.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;What&amp;rsquo;s true of every bug found in the field? It passed all the tests. So now what do you do? I think we&amp;rsquo;re in this world I&amp;rsquo;d like to call guardrail programming. It&amp;rsquo;s really sad. We&amp;rsquo;re like, &amp;ldquo;I can make change because I have tests!&amp;rdquo; Who does that? Who drives their car around banging against the guardrail saying, &amp;ldquo;Whoa! I&amp;rsquo;m glad I&amp;rsquo;ve got these guardrails because I&amp;rsquo;d never make it to the show on time.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Once you find a bug, tests only tell you what the problem isn&amp;rsquo;t. You have to reason about the program, debug it, try things. If the program is complex, this is harder to do. The only way to improve this process is if the program is simple.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Compared to the complexity we can create, we&amp;rsquo;re all statistically at the same point in our ability to understand it, which is not very good. So we&amp;rsquo;re going to have to bring things towards us.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There&amp;rsquo;s definitely a lot of great insight in this talk. As a final point, let&amp;rsquo;s remember that simplicity doesn&amp;rsquo;t just happen. It&amp;rsquo;s not the default mode of software engineering.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Simplicity is a choice. It requires constant vigilance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We need more thinking around simplicity. If you know of other great talks on simplicity, in software or otherwise, please share in the comments.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What have we been doing for 40 years?</title>
+      <link>http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/</link>
+      <pubDate>Wed, 08 Apr 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://gliderlabs.com/images/2015/xerox_parc_1975.jpg&#34; title=&#34;Xerox PARC, 1975 via Computer History Museum&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Desktop computing, graphical user interfaces, object-oriented programming, laser printing, Ethernet. Pillars of modern computing invented by only 25 people over 5 years at one place: Xerox PARC.&lt;/p&gt;
+
+&lt;p&gt;Unix and C. Foundations of modern systems software initially developed by just 2 people over 3 years at one place: Bell Labs.&lt;/p&gt;
+
+&lt;p&gt;Both happened in the early 1970s. &lt;em&gt;That was over 40 years ago.&lt;/em&gt; What exactly have the rest of us been doing since?&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;We&amp;rsquo;ve been looking at photos of cats!&amp;rdquo; Okay, but really.&lt;/p&gt;
+
+&lt;p&gt;The startup world responds half-jokingly, and perhaps with an air of trademark Silicon Valley superiority, &amp;ldquo;Um, we&amp;rsquo;ve been innovating? You know, bringing all this to market and making it easier to use?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re right! We&amp;rsquo;ve been innovating. That doesn&amp;rsquo;t sound so bad, does it? It&amp;rsquo;s not, but there is a big difference between invention and innovation. &lt;strong&gt;The problem is that innovation feeds on invention, and we&amp;rsquo;ve been feeding on the same inventions for 40 years.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Consumers are not complaining. In fact, they&amp;rsquo;re eating it up. Innovation is clearly where the money is and there&amp;rsquo;s plenty more. Now anybody in Silicon Valley that claims to be inventing is usually lying. Most are proud &lt;em&gt;not&lt;/em&gt; to be inventing.&lt;/p&gt;
+
+&lt;p&gt;Some say Google X is the new Xerox PARC. No way. Google X is about sexy commercial applications that are extremely risky. Xerox PARC was about researchers&amp;rsquo; independent curiosity and vision. One was set up for &amp;ldquo;pie in the sky&amp;rdquo; innovation, the other was set up for &amp;ldquo;blue sky&amp;rdquo; &lt;em&gt;invention&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Interestingly, systems software and tooling naturally gets more attention when allowed blue sky invention. Put a bunch of computer scientists together and let them do whatever they want. What are they going to do? Odds are they&amp;rsquo;ll design a new programming language. Exactly! I know that&amp;rsquo;s not particularly ideal, but it reveals the inherent bias. Compare that scenario with them being tasked to change the world.&lt;/p&gt;
+
+&lt;p&gt;Innovation is great. I&amp;rsquo;m not trying to devalue the work we&amp;rsquo;ve done since the 70s. However, this obsession with innovation clearly devalues invention. Moreover, looking at what are effectively the same tools after 40 years, my concern is that lack of invention stifles major progress in systems software.&lt;/p&gt;
+
+&lt;p&gt;The good news is that we&amp;rsquo;ve seen it could only take a handful of people in the right place with the right incentives to make another leap. It just most likely won&amp;rsquo;t be VC backed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Modern Systems Software Mess</title>
+      <link>http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/</link>
+      <pubDate>Tue, 24 Mar 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/</guid>
+      <description>&lt;p&gt;In August 2000, while Rob Pike was still at Bell Labs and before he co-developed Go, he gave a talk called &lt;a href=&#34;http://doc.cat-v.org/bell_labs/utah2000/&#34;&gt;Systems Software Research is Irrelevant&lt;/a&gt;. Today the situation is perhaps not as dire. At the very least, his examples are noticeably dated. However, many of his points remain true and point at systemic roadblocks to better systems software.&lt;/p&gt;
+
+&lt;p&gt;His main point was that academic research around systems software had lost the influence on industry it once had. The rise of Google and its academically inclined engineering culture is maybe the biggest shift since this talk. Google has applied and published great research on software systems, particularly around distributed systems.&lt;/p&gt;
+
+&lt;p&gt;That said, there are points from this talk that resonate with and inspire people like us trying to fill the void of modern systems R&amp;amp;D.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Startups are too focused on short time scale and practical results to try new things.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;At first I thought, &amp;ldquo;That&amp;rsquo;s not true!&amp;rdquo; Then I realized what startups really do is often take the opportunity to apply &lt;em&gt;recent&lt;/em&gt; ideas (ie Docker), but rarely do they (nor should they) try to &lt;em&gt;invent&lt;/em&gt; novel approaches to systems.&lt;/p&gt;
+
+&lt;p&gt;Instead, invention most often comes from organizations large enough to necessitate invention for their particular problem and scale, or startup vendors that are trying to sell a shiny new solution. This has yielded great papers, best practices, and open source software, but in all cases these are independent solutions to specific problems.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Go back to thinking about and &lt;em&gt;building systems&lt;/em&gt;. Narrowness is irrelevant; breadth is relevant: it&amp;rsquo;s the essence of &lt;em&gt;system&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No one vendor will provide a solution for your entire system. There are virtualization vendors, CI vendors, source control vendors, operating system vendors, configuration management vendors, database vendors, container management vendors, and on and on.&lt;/p&gt;
+
+&lt;p&gt;Whether these are hosted services or commercially supported open source software, none of them will ever solve (read: own) the system. No matter what they think or what they tell you.&lt;/p&gt;
+
+&lt;p&gt;Instead, we collectively share best practices and loosely converge on similar system architectures. But who has the incentive and business platform that can support &lt;em&gt;systemic&lt;/em&gt; innovation?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There has been much talk about component architectures but only one true success: Unix pipes. It should be possible to build interactive and distributed applications from piece parts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If there is a guiding hypothesis behind the Glider Labs approach to building systems, this is it. Rarely does this get a chance to be fully explored.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Pattern Emerges</title>
+      <link>http://gliderlabs.com/devlog/2015/a-pattern-emerges/</link>
+      <pubDate>Wed, 04 Mar 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/a-pattern-emerges/</guid>
+      <description>&lt;p&gt;It may not be obvious, but Glider Labs is named after the glider pattern in &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&#34;&gt;Conway&amp;rsquo;s Life&lt;/a&gt;. If you&amp;rsquo;re not familiar, Conway&amp;rsquo;s Life is a popular cellular automaton that exhibits how simple rules can lead to complex behavior.&lt;/p&gt;
+
+&lt;p&gt;Specifically, Conway&amp;rsquo;s Life is a simple simulation with cells that can either be on or off at each step. Every step, four simple rules are executed dealing with the state of a cell&amp;rsquo;s neighbors. From this, you get what seems to be a disproportionate amount of rich, dynamic behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/8Ar9S6zEFjJiU/giphy.gif&#34; alt=&#34;Conway&#39;s Life&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Key takeaways from Conway&amp;rsquo;s Life are about complexity and emergence. A well constructed initial pattern of only a few cells in Life can grow into an entire ecosystem of interesting patterns.&lt;/p&gt;
+
+&lt;p&gt;A minor change to the initial pattern has a tremendous effect on how the pattern evolves. While the system is deterministic, the dynamics of it are not terribly intuitive. You rarely know how a change will cascade through the lifespan of a Life simulation unless you built it up from scratch yourself.&lt;/p&gt;
+
+&lt;p&gt;Murphy&amp;rsquo;s law is an unavoidable truth in operations and reliability engineering. Root cause analysis usually proves major system failures not to be random, but an unexpected series of smaller, cascading failures. This is the nature of failure and predictability in complex systems, and it&amp;rsquo;s fascinating how well this is captured in models like Conway&amp;rsquo;s Life.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/tXlpbXfu7e2Pu/giphy.gif&#34; alt=&#34;Complex Life system&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Studying complexity and emergence in Conway&amp;rsquo;s Life also reveals useful truths in designing everyday software systems. Although there are infinite possible simulations in Life, you quickly notice that all complex patterns are made up of just a few simple patterns that keep recurring.&lt;/p&gt;
+
+&lt;p&gt;These useful patterns can be arranged in countless ways to compose more complex useful patterns. Complex patterns can then be combined as modules to make even more complex patterns. Sound familiar?&lt;/p&gt;
+
+&lt;p&gt;In case these patterns seem pointless, it may be worth mentioning that Conway&amp;rsquo;s Life is &lt;a href=&#34;http://jeremykun.com/2011/06/30/turing-machines-and-conways-dreams/&#34;&gt;Turing complete&lt;/a&gt;. As such, you can implement &lt;a href=&#34;https://www.youtube.com/watch?v=xP5-iIeKXE8&#34;&gt;Conway&amp;rsquo;s Life in Conway&amp;rsquo;s Life&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This only scratches the surface of what can be gleaned from studying Conway&amp;rsquo;s Life. There are plenty of ways to play with Life simulations, including implementing one yourself. Here&amp;rsquo;s a &lt;a href=&#34;http://play.golang.org/p/nr2wehptjW&#34;&gt;runnable Go implementation&lt;/a&gt; in about 100 lines.&lt;/p&gt;
+
+&lt;p&gt;The glider pattern we reference is the smallest traveling pattern in Life, and one of the most useful building blocks. It&amp;rsquo;s often used as a symbol of Conway&amp;rsquo;s Life, but has also been adopted to &lt;a href=&#34;http://www.catb.org/hacker-emblem/faqs.html&#34;&gt;represent the hacker ethic&lt;/a&gt;. This is a convenient symbolic addition for us.&lt;/p&gt;
+
+&lt;p&gt;All of this gets at how we think about problems, design systems, and captures the realities of our field. This is why we are Glider Labs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/wErVWADqta2oE/giphy.gif&#34; alt=&#34;Glider pattern&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Home</title>
+      <link>http://gliderlabs.com/wiki/Home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://gliderlabs.com/wiki/Home/</guid>
+      <description>&lt;p&gt;Coming soon.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Running Costs</title>
+      <link>http://gliderlabs.com/finances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://gliderlabs.com/finances/</guid>
+      <description>&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://rawgit.com/chartjs/chartjs-plugin-annotation/master/chartjs-plugin-annotation.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://www.gstatic.com/charts/loader.js&#34;&gt;&lt;/script&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+var rawdata = {};
+var data = {};
+var info = {};
+var chart = null;
+var colors = [&#34;#8dd3c7&#34;,&#34;#bebada&#34;,&#34;#fb8072&#34;,&#34;#80b1d3&#34;,&#34;#fdb462&#34;,&#34;#b3de69&#34;,&#34;#fccde5&#34;,&#34;#d9d9d9&#34;,&#34;#bc80bd&#34;,&#34;#ccebc5&#34;,&#34;#ffed6f&#34;,&#34;#56beac&#34;,&#34;#8f88bf&#34;,&#34;#f93d28&#34;,&#34;#478ebf&#34;,&#34;#fc9016&#34;,&#34;#92cd2d&#34;,&#34;#f885bf&#34;,&#34;#b3b3b3&#34;,&#34;#9d529e&#34;,&#34;#9ad78c&#34;,&#34;#ffe322&#34;,&#34;#379080&#34;,&#34;#6158a3&#34;,&#34;#ce1a06&#34;,&#34;#30658a&#34;,&#34;#c36902&#34;,&#34;#668f1f&#34;,&#34;#f33d9a&#34;,&#34;#8c8c8c&#34;,&#34;#6b386c&#34;,&#34;#68c453&#34;,&#34;#d5ba00&#34;];
+
+function sum(n) {
+  return _.reduce(n, function(sum,m) { return sum+m });
+}
+
+function init() {
+  $.ajax(&#34;https://tully-gl.herokuapp.com/balance&#34;, {
+  	error: function(xhr, status, err) {
+  		console.log(err);
+  		alert(status);
+  	},
+    success: function(rawdata) {
+      _.forEach(_.groupBy(rawdata, &#34;account&#34;), function(value, key) {
+        var values = _.map(value, &#34;amount&#34;);
+        var total = sum(values);
+        var months = _.reduce(values, function(mo,n) {
+          if (n &gt; 0)
+            return mo+1;
+          else
+            return mo;
+        }, 0);
+        var active = (sum(_.slice(values, -3)) != 0 || months == 1)
+        var monthly = (months &lt; 2 || !active) ? null : Math.round(total/months * 100) / 100;
+        info[key] = {
+          values: values,
+          total: total,
+          active: active,
+          monthly: monthly
+        };
+        if (_.includes(key, &#34;Hosted Services&#34;)) {
+          info[key].type = &#34;service&#34;;
+        } else if (_.includes(key, &#34;Contractors&#34;) || _.includes(key, &#34;Equity:Draw&#34;)) {
+          info[key].type = &#34;staff&#34;;
+        } else if (!_.includes(key, &#34;Assets:&#34;)){
+          info[key].type = &#34;other&#34;;
+        }
+      });
+      update(&#34;service&#34;);
+    }
+  });
+}
+
+function update(mode) {
+  data = {};
+  _.forEach(info, function(account, key) {
+    if (account.total &gt; 0 &amp;&amp; account.type == mode) {
+      data[key] = account.values;
+    }
+  });
+  drawTable();
+  drawChart();
+}
+
+function tableName(name) {
+  var parts = name.split(&#34;:&#34;);
+  parts.shift();
+  return parts.join(&#34;:&#34;)
+}
+
+function chartName(name) {
+  var parts = name.split(&#34;:&#34;);
+  return parts[parts.length-1];
+}
+
+function drawChart() {
+  var ctx = document.getElementById(&#34;myChart&#34;);
+  if (chart !== null) chart.destroy();
+  chart = new Chart(ctx, {
+    type: &#39;line&#39;,
+    data: {
+      labels: [&#34;Jan &#39;16&#34;, &#34;Feb &#39;16&#34;, &#34;Mar &#39;16&#34;, &#34;Apr &#39;16&#34;, &#34;May &#39;16&#34;, &#34;Jun &#39;16&#34;, &#34;Jul &#39;16&#34;, &#34;Aug &#39;16&#34;, &#34;Sep &#39;16&#34;, &#34;Oct &#39;16&#34;, &#34;Nov &#39;16&#34;, &#34;Dec &#39;16&#34;],
+      datasets: _.map(_.keys(data), function(key, idx) {
+      	return {
+          label: chartName(key),
+          data: data[key],
+          backgroundColor: colors[idx],
+          pointHoverBackgroundColor: colors[idx],
+          pointBackgroundColor: &#34;rgba(0,0,0,0)&#34;,
+          borderColor: &#34;rgba(0,0,0,0)&#34;
+      	}
+      })
+    },
+    options: {
+      legend: {
+        position: &#34;bottom&#34;,
+        display: false
+      },
+      scales: {
+        xAxes: [
+         {gridLines: {
+          	display: false
+          }}
+        ],
+        yAxes: [{
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+            callback: function(value) {return &#34;$&#34;+value.toString();}
+          }
+        }]
+      },
+      tooltips: {
+      	enabled: true,
+        intersect: false,
+        mode: &#39;index&#39;,
+        displayColors: false,
+        filter: function(v, o) {
+          if (o.datasets[v.datasetIndex].data[v.index] == 0) return null;
+          return v;
+        }
+      }
+    }/*,
+      annotation: {
+  	    drawTime: &#39;beforeDatasetsDraw&#39;,
+          annotations: [{
+              id: &#39;a-line-1&#39;, // optional
+              type: &#39;line&#39;,
+              mode: &#39;vertical&#39;,
+              scaleID: &#39;y-axis-0&#39;,
+              value: &#39;4&#39;,
+              borderColor: &#34;#00f&#34;,
+              borderWidth: 2,
+              label: {
+                content: &#34;Reboot&#34;,
+                enabled: true,
+                fontColor: &#34;#000&#34;,
+                yAdjust: -10,
+                xAdjust: 24,
+                fontStyle: &#34;normal&#34;,
+                backgroundColor: &#34;rgba(0,0,0,0)&#34;
+              }
+          }]
+      }
+    }*/
+  });
+}
+
+google.charts.load(&#39;current&#39;, {&#39;packages&#39;:[&#39;table&#39;]});
+google.charts.setOnLoadCallback(init);
+
+function drawTable() {
+  var datatable = new google.visualization.DataTable();
+  var formatter = new google.visualization.NumberFormat({prefix: &#39;$&#39;});
+
+  datatable.addColumn(&#39;string&#39;, &#39;&#39;);
+  datatable.addColumn(&#39;string&#39;, &#39;Account&#39;);
+  datatable.addColumn(&#39;number&#39;, &#39;Monthly&#39;);
+  datatable.addColumn(&#39;number&#39;, &#39;YTD&#39;);
+  datatable.addRows(_.map(_.keys(data), function(key, idx) {
+    var style = (info[key].active || info[key].type != &#34;service&#34;) ? &#34;&#34; : &#34;text-decoration: line-through;&#34;;
+    return [
+      {v:&#39;&#39;, p:{style:&#34;background: &#34;+colors[idx]+&#34;;&#34;}},
+      {v: tableName(key), p:{style:style}},
+      {v: info[key].monthly, p:{style:&#34;width: 150px;&#34;}},
+      {v: info[key].total, p:{style:&#34;width: 150px;&#34;}}]
+  }));
+  formatter.format(datatable, 3);
+  formatter.format(datatable, 2);
+  var table = new google.visualization.Table(document.getElementById(&#39;table_div&#39;));
+
+  table.draw(datatable, {
+    allowHtml: true,
+    showRowNumber: false,
+    width: &#39;100%&#39;,
+    height: &#39;100%&#39;, &#39;cssClassNames&#39;: {&#39;headerCell&#39;: &#39;finance-table-header&#39;}});
+}
+
+function select(type, el) {
+  $(&#34;#modes .button&#34;).removeClass(&#34;active&#34;);
+  $(el).addClass(&#34;active&#34;);
+  update(type);
+}
+&lt;/script&gt;
+
+&lt;div id=&#34;modes&#34; class=&#34;ui right floated basic buttons&#34; style=&#34;margin-top: -55px;&#34;&gt;
+  &lt;div class=&#34;ui button active&#34; onclick=&#34;select(&#39;service&#39;, this)&#34;&gt;Services&lt;/div&gt;
+  &lt;div class=&#34;ui button&#34; onclick=&#34;select(&#39;staff&#39;, this)&#34;&gt;Staff&lt;/div&gt;
+  &lt;div class=&#34;ui button&#34; onclick=&#34;select(&#39;other&#39;, this)&#34;&gt;Other&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+Here we share our expenses and running costs to operate Glider Labs and develop our projects.
+This data is straight from our books and updated in realtime.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;div style=&#34;width: 1000px; position: relative; margin-left: -120px;&#34;&gt;
+    &lt;canvas id=&#34;myChart&#34; width=&#34;30&#34; height=&#34;10&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;div id=&#34;table_div&#34;&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;small&gt;Monthly is averaged over months with transactions.
+    No monthly means inactive, annual, or a one-time expense.&lt;/small&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Services</title>
+      <link>http://gliderlabs.com/services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://gliderlabs.com/services/</guid>
+      <description>
+
+&lt;p&gt;Our experience and expertise is far less valuable kept to ourselves. We&amp;rsquo;ve
+decided to bring back our consulting services in the form of ad-hoc mentorship and
+advice.&lt;/p&gt;
+
+&lt;p&gt;You can now easily schedule open-ended time with us by the hour. Some ways we can
+help you in these sessions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sharing best practices&lt;/li&gt;
+&lt;li&gt;remote pairing&lt;/li&gt;
+&lt;li&gt;problem solving discussion&lt;/li&gt;
+&lt;li&gt;collaborative planning&lt;/li&gt;
+&lt;li&gt;code or architecture review&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;personal-or-open-source-remote&#34;&gt;Personal or Open Source, Remote&lt;/h2&gt;
+
+&lt;p&gt;This service is not just for commercial use. Any person or project that wants to
+take advantage of our guidance can at a discounted rate of $150/hr. This offer
+is limited to video conferencing that will be recorded for potential future
+educational material.&lt;/p&gt;
+
+&lt;h2 id=&#34;commercial-hourly-remote&#34;&gt;Commercial Hourly, Remote&lt;/h2&gt;
+
+&lt;p&gt;Unrecorded video conferencing sessions are available at $250/hr.&lt;/p&gt;
+
+&lt;h2 id=&#34;commercial-daily-onsite&#34;&gt;Commercial Daily, Onsite&lt;/h2&gt;
+
+&lt;p&gt;In-office sessions provide higher throughput and are generally more enjoyable!
+You can borrow us at $2,000 per day, per person, on top of travel and accommodation.&lt;/p&gt;
+
+&lt;h2 id=&#34;contact-us&#34;&gt;Contact Us&lt;/h2&gt;
+
+&lt;p&gt;Get in touch to check availability, just email us: team @ gliderlabs.com.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

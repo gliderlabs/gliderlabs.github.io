@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/notes/</link>
+    <description>Recent content in Notes on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Sep 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Testing your project&#39;s development setup</title>
+      <link>http://gliderlabs.com/devlog/2016/test-dev-setup/</link>
+      <pubDate>Wed, 07 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/test-dev-setup/</guid>
+      <description>&lt;p&gt;There are usually hidden assumptions about your project&amp;rsquo;s development environment that you don&amp;rsquo;t find out about until somebody else tries to setup the project. Very much like the first pass at a user interface.&lt;/p&gt;
+
+&lt;p&gt;In this case I&amp;rsquo;m not talking about installing or using your project, but setting it up for development. Onboarding new contributors. The bigger the project or the more languages involved, the more this can be an issue.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve probably all noticed this problem before. Once everybody is setup for a project, nobody knows for sure what breaks a new setup. The answer should be obvious: test it.&lt;/p&gt;
+
+&lt;p&gt;You might be thinking VMs or Vagrant, but Docker is really the best solution here.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Wait,&amp;rdquo; you say, &amp;ldquo;shouldn&amp;rsquo;t you already just be developing your app in Docker?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Maybe, though honestly, it&amp;rsquo;s not always worth it. It&amp;rsquo;s great to be able to build the production image and try it locally, but development can be a very different build and workflow. In some cases, Dockerizing the development workflow is more work and too much of a hit on contributor UX than it&amp;rsquo;s worth.&lt;/p&gt;
+
+&lt;p&gt;If you do use Docker for development, you&amp;rsquo;re basically already testing your environment. If you don&amp;rsquo;t for whatever reason, testing setup is a good excuse to make a development-oriented Dockerfile anyway. Not necessarily to use, just to use as a test.&lt;/p&gt;
+
+&lt;p&gt;The base image doesn&amp;rsquo;t have to be the same as production or development, though it&amp;rsquo;s a good idea to at least match production. We use Alpine because it&amp;rsquo;s small and fast to install packages, and we happen to also use Alpine for production images.&lt;/p&gt;
+
+&lt;p&gt;The fact it&amp;rsquo;s different from development doesn&amp;rsquo;t matter a huge amount in practice. People are going to have different platforms anyway. Mac, Linux, different distros, different versions. As long as you&amp;rsquo;re installing the same versions of packages you need, it&amp;rsquo;s a pretty good approximation. This Dockerfile can then become the reference for what needs to go into, for example, a Brewfile.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t expect it to be fast for larger projects, but using Docker and Alpine will make it pretty fast. I don&amp;rsquo;t run this test all the time during development. I only run it when I&amp;rsquo;m changing files that affect the dev environment setup. Then I run &lt;code&gt;make test-env&lt;/code&gt;, which simply builds the Dockerfile.&lt;/p&gt;
+
+&lt;p&gt;If the build fails, the test has failed. If it builds without error, the test has passed. Now if you were to, for example, add a JavaScript dependency but forget to add it to &lt;code&gt;package.json&lt;/code&gt;, you&amp;rsquo;d find out from this test.&lt;/p&gt;
+
+&lt;p&gt;You might also run the tests or do the build as part of this Dockerfile. Ideally, you&amp;rsquo;d also run your development runner or harness in the image build if you have one. That can be tricky because they run indefinitely. Adding a timeout to the runner so it exits after a given time if provided handles that. Now you&amp;rsquo;ll know it builds, but more importantly that the development harness runs.&lt;/p&gt;
+
+&lt;p&gt;We make sure the CI always runs this test. In fact, then we also run the usual CI tests using that container. We usually want to run CI tests in Docker anyway because it makes for a much simpler and debuggable CI setup. It&amp;rsquo;s sort of convenient that our environment test is actually just a build. Here is a &lt;code&gt;circle.yml&lt;/code&gt; for one of our projects:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t automata -f dev/setup/Dockerfile .
+
+test:
+  override:
+    - docker run automata /bin/sh -c &amp;quot;make test&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ve not run into many people that talk about testing their project development setup. I assume this means most aren&amp;rsquo;t doing it. Though if you develop in Docker, you&amp;rsquo;re already mostly doing it, maybe without realizing.&lt;/p&gt;
+
+&lt;p&gt;Whether or not you develop in Docker, though, after having a number of onboarding blunders, this now saves us from maybe 95% of them. We know with that level of certainty, given you have XYZ tools installed (which we check for), that anybody will get a working development environment with &lt;code&gt;make setup&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;YMMV ;)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

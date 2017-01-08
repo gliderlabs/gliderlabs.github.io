@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/golang/</link>
+    <description>Recent content in Golang on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Nov 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Build SSH servers now as easy as HTTP servers in Go</title>
+      <link>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</link>
+      <pubDate>Wed, 30 Nov 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</guid>
+      <description>
+
+&lt;p&gt;My staff and I (read: just &lt;a href=&#34;https://github.com/mattaitchison/&#34;&gt;Matt&lt;/a&gt; and myself)
+have been hard at work building the tooling and infrastructure to bring the
+Glider Labs vision to life. As you&amp;rsquo;ve heard, one of our pilot projects for the
+reboot is &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;Cmd.io&lt;/a&gt;, which
+is heavily based on SSH. In fact, I&amp;rsquo;ve worked on a bunch of projects using SSH
+ever since Localtunnel nearly 7 years ago. And now we&amp;rsquo;ve finally been able to
+capture a high-level library for building SSH servers.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s called &lt;a href=&#34;https://github.com/gliderlabs/ssh&#34;&gt;gliderlabs/ssh&lt;/a&gt;. Here are the &lt;a href=&#34;https://godoc.org/github.com/gliderlabs/ssh&#34;&gt;GoDocs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One of the great things about Go is that it actually has &lt;a href=&#34;https://godoc.org/golang.org/x/crypto/ssh&#34;&gt;an SSH
+package&lt;/a&gt; as part of its &amp;ldquo;extended&amp;rdquo;
+standard library. It has a great one-to-one mapping of most of the SSH protocol,
+but as such, it&amp;rsquo;s still pretty low-level. We&amp;rsquo;ve gone through a number of ways to
+organize and build specialized SSH servers with it. Now we&amp;rsquo;ve gotten to the
+point where we understand it well  enough to build a general, high-level SSH
+library on top.&lt;/p&gt;
+
+&lt;p&gt;And the best thing? We modeled the API after net/http, so building SSH servers
+is now as easy as building HTTP servers in Go:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+    &amp;quot;io&amp;quot;
+    &amp;quot;github.com/gliderlabs/ssh&amp;quot;
+)
+
+func main() {
+    ssh.Handle(func(s ssh.Session) {
+        io.WriteString(s, &amp;quot;Hello world\n&amp;quot;)
+    })
+
+    log.Fatal(ssh.ListenAndServe(&amp;quot;:2222&amp;quot;, nil))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Besides our projects, we&amp;rsquo;ve also collaborated with fellow Gopher and SSH
+protocol enthusiast &lt;a href=&#34;https://twitter.com/shazow&#34;&gt;@shazow&lt;/a&gt;. He&amp;rsquo;s worked on one or
+two SSH projects with us and has his own popular SSH project
+&lt;a href=&#34;https://github.com/shazow/ssh-chat&#34;&gt;ssh-chat&lt;/a&gt;, so it was very helpful to get
+his feedback on this API.&lt;/p&gt;
+
+&lt;p&gt;And as I mentioned, we use this in Cmd.io and is one of the first steps towards
+making Cmd.io open source.&lt;/p&gt;
+
+&lt;h2 id=&#34;sshfront&#34;&gt;sshfront&lt;/h2&gt;
+
+&lt;p&gt;I know some of you browse our repositories and may have found
+&lt;a href=&#34;https://github.com/gliderlabs/sshfront&#34;&gt;sshfront&lt;/a&gt;, an SSH daemon that calls out
+to your own commands to handle SSH sessions and authentication. It&amp;rsquo;s sort of
+like CGI for SSH. You get this high-performance server daemon and you can script
+how to handle sessions using any language you want by just using standard
+IO.&lt;/p&gt;
+
+&lt;p&gt;Since we often need more customization, we haven&amp;rsquo;t used it in many projects, but
+it&amp;rsquo;s great for prototyping. That said, I&amp;rsquo;d be pretty comfortable using it in
+production as well. It&amp;rsquo;s like a simpler, more programmable version of OpenSSH.&lt;/p&gt;
+
+&lt;p&gt;Anyway, we haven&amp;rsquo;t touched it in a while, but we could probably reduce its
+codebase to a tenth the size by dropping in gliderlabs/ssh. Perhaps that could
+be an exercise for one of you out there excited to use gliderlabs/ssh?&lt;/p&gt;
+
+&lt;p&gt;In any case, enjoy the library and build cool stuff!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

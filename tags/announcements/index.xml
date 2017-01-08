@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Announcements on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/announcements/</link>
+    <description>Recent content in Announcements on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Dec 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/announcements/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Glider Labs Financial Transparency</title>
+      <link>http://gliderlabs.com/devlog/2016/financial-transparency/</link>
+      <pubDate>Wed, 21 Dec 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/financial-transparency/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m excited to announce we are now sharing &lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;all of our expenses&lt;/a&gt; directly from our books in real-time. This is the first step towards full financial transparency, eventually including income, account balances, even equity contributions. The system is automatic, real-time, and beautifully visualized.&lt;/p&gt;
+
+&lt;p&gt;We were heavily influenced by Cushion&amp;rsquo;s &lt;a href=&#34;http://cushionapp.com/running-costs/&#34;&gt;Running Costs&lt;/a&gt; page, so a big thanks to them for the visualization concept. Here&amp;rsquo;s what ours looks like at the time of this post:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;&lt;img src=&#34;http://gliderlabs.com/images/2016/expenses-services.png&#34; alt=&#34;Glider Labs 2016 Expenses: Hosted Services&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The visualization is accompanied by a table with more details. We&amp;rsquo;ve split the Running Costs report into three categories for easier consumption: Hosted Services, Staff Costs, and Other. The data includes all of 2016 and will show a rolling window of the last 12 months as we go into 2017.&lt;/p&gt;
+
+&lt;h2 id=&#34;transparency&#34;&gt;Transparency&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m a big fan of transparency in organizations. Financial transparency in particular captures the state and health of an organization, which usually comes in the form of reports and metrics. When I worked at Twilio, our CEO, Jeff Lawson, would give weekly all-hands meetings. In these he shared how much money was in the bank and discussed what we saw on the internal financial dashboard. This was confidential and employees only, but a nice gesture of transparency.&lt;/p&gt;
+
+&lt;p&gt;Financial transparency is especially important for any mission-driven, public benefit organization. When I was a director at &lt;a href=&#34;http://www.hackerdojo.com/&#34;&gt;Hacker Dojo&lt;/a&gt;, we&amp;rsquo;d have monthly meetings open to anybody that shared a typical income and expense report. In the early days, before we had proper bookkeeping, we&amp;rsquo;d screengrab reports from Mint. Ideally, though, our books would always be in good shape and publicly available.&lt;/p&gt;
+
+&lt;p&gt;Glider Labs started as a consulting company, but our reboot represents a shift towards an open, public benefit organization. Although I haven&amp;rsquo;t properly communicated our mission yet, it&amp;rsquo;s built around open source and open source values.&lt;/p&gt;
+
+&lt;p&gt;Open source and community-run organizations like Hacker Dojo are open and mostly decentralized, allowing anybody to participate. In these cases, transparency is not just about accountability and goodwill. Transparency is necessary for the community to participate and make decisions effectively.&lt;/p&gt;
+
+&lt;h2 id=&#34;automated-bookkeeping&#34;&gt;Automated Bookkeeping&lt;/h2&gt;
+
+&lt;p&gt;The only way to get the ideal level of financial transparency is to automate it. I don&amp;rsquo;t just mean making the bookkeeping data available via API. The act of bookkeeping itself needs to be automated as well. In smaller organizations that don&amp;rsquo;t rely on their books for the day-to-day, making reports is often the forcing function to clean up the books and make sure it&amp;rsquo;s all correct. To have continuous reporting like this means ongoing bookkeeping, which traditionally means hiring a bookkeeper.&lt;/p&gt;
+
+&lt;p&gt;Perhaps for that reason, most bookkeeping software is not very automation friendly. Especially for the type of automation we have planned. So we decided to make our own. It&amp;rsquo;s a simple double-entry bookkeeping system backed by SQL for data consistency and custom reporting, and speaks JSON over HTTP. It&amp;rsquo;s called Tully, named after &lt;a href=&#34;http://ghostbusters.wikia.com/wiki/Louis_Tully&#34;&gt;Louis Tully&lt;/a&gt; from Ghostbusters.&lt;/p&gt;
+
+&lt;p&gt;We took heavy inspiration from &lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;Ledger&lt;/a&gt; and &lt;a href=&#34;http://plaintextaccounting.org/&#34;&gt;Ledger-likes&lt;/a&gt;. In fact, Tully can import and export Ledger-compatible files, so you can use Ledger with Tully. Also like Ledger, Tully is open source. Or will be, eventually.&lt;/p&gt;
+
+&lt;p&gt;The real magic of Tully we&amp;rsquo;ll save for later. For now, we&amp;rsquo;re using an early version of it to power the Finances page.&lt;/p&gt;
+
+&lt;p&gt;As a side note, you&amp;rsquo;ll notice we pay for GoDaddy Bookkeeping. Once we do our taxes to verify Tully has parity, we&amp;rsquo;ll switch off of GoDaddy. I actually loathe GoDaddy, but GoDaddy Bookkeping was acquired. It used to be called &lt;a href=&#34;http://outright.com/&#34;&gt;Outright&lt;/a&gt;. Despite being GoDaddy now, it&amp;rsquo;s a great modern, minimal bookkeeping tool. Interestingly, it was originally developed by a founding member of Hacker Dojo, Dean Mao, while at Hacker Dojo.&lt;/p&gt;
+
+&lt;h2 id=&#34;2016-closing-retrospective&#34;&gt;2016 Closing Retrospective&lt;/h2&gt;
+
+&lt;p&gt;The timing of all this aligns nicely with the close of 2016. Already we&amp;rsquo;ve received some great questions inspired by the 2016 data on our Finances page. I&amp;rsquo;d love to answer any other questions people have via Twitter (&lt;a href=&#34;https://twitter.com/progrium&#34;&gt;@progrium&lt;/a&gt;), in the comments here, or in &lt;a href=&#34;http://slack.gliderlabs.com/&#34;&gt;our Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To provide some context for the data, 2016 was a very light year for the business. At our peak in 2015, we had a staff of around 5 people working with several clients at once. When my co-founder, Andy, let himself get burnt out, he left Glider Labs. In a panic I started to reduce our load and planned for time off myself until the end of 2015. During that time I started formulating some of the ideas I have now for Glider Labs.&lt;/p&gt;
+
+&lt;p&gt;Going into 2016, in order to pay rent I took on some clients. Although we stopped working with most of our other staff, I wanted to keep Matt around, which also meant taking on clients for him. With the future of Glider Labs uncertain, we basically got by doing the minimal amount of client work.&lt;/p&gt;
+
+&lt;p&gt;Then, over the summer, a bunch of events and ideas came together that led to &lt;a href=&#34;http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/&#34;&gt;the reboot in September&lt;/a&gt;. Internally the reboot started at the end of July. It meant we&amp;rsquo;d stop taking client work and focus on innovating in open source. I know that&amp;rsquo;s vague, but the point is we had to economize and shift the business towards a different model. So you can see August to September we started reducing our costs and our AWS activity started going up.&lt;/p&gt;
+
+&lt;p&gt;We can probably reduce our costs even more. Another great benefit of this transparency is that we can get suggestions for reducing our costs. For example, our friend Jo&amp;euml;l mentioned in Slack using Let&amp;rsquo;s Encrypt instead of SSLMate. It turns out we already started using Let&amp;rsquo;s Encrypt but only after our renewal with SSLMate. One thing Cushion has that we don&amp;rsquo;t yet is an explanation for our costs. Hopefully that will come in time as well.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s about it for now. Definitely looking forward to 2017. Enjoy the holidays!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Build SSH servers now as easy as HTTP servers in Go</title>
+      <link>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</link>
+      <pubDate>Wed, 30 Nov 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/easy-ssh-servers/</guid>
+      <description>
+
+&lt;p&gt;My staff and I (read: just &lt;a href=&#34;https://github.com/mattaitchison/&#34;&gt;Matt&lt;/a&gt; and myself)
+have been hard at work building the tooling and infrastructure to bring the
+Glider Labs vision to life. As you&amp;rsquo;ve heard, one of our pilot projects for the
+reboot is &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;Cmd.io&lt;/a&gt;, which
+is heavily based on SSH. In fact, I&amp;rsquo;ve worked on a bunch of projects using SSH
+ever since Localtunnel nearly 7 years ago. And now we&amp;rsquo;ve finally been able to
+capture a high-level library for building SSH servers.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s called &lt;a href=&#34;https://github.com/gliderlabs/ssh&#34;&gt;gliderlabs/ssh&lt;/a&gt;. Here are the &lt;a href=&#34;https://godoc.org/github.com/gliderlabs/ssh&#34;&gt;GoDocs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One of the great things about Go is that it actually has &lt;a href=&#34;https://godoc.org/golang.org/x/crypto/ssh&#34;&gt;an SSH
+package&lt;/a&gt; as part of its &amp;ldquo;extended&amp;rdquo;
+standard library. It has a great one-to-one mapping of most of the SSH protocol,
+but as such, it&amp;rsquo;s still pretty low-level. We&amp;rsquo;ve gone through a number of ways to
+organize and build specialized SSH servers with it. Now we&amp;rsquo;ve gotten to the
+point where we understand it well  enough to build a general, high-level SSH
+library on top.&lt;/p&gt;
+
+&lt;p&gt;And the best thing? We modeled the API after net/http, so building SSH servers
+is now as easy as building HTTP servers in Go:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+    &amp;quot;io&amp;quot;
+    &amp;quot;github.com/gliderlabs/ssh&amp;quot;
+)
+
+func main() {
+    ssh.Handle(func(s ssh.Session) {
+        io.WriteString(s, &amp;quot;Hello world\n&amp;quot;)
+    })
+
+    log.Fatal(ssh.ListenAndServe(&amp;quot;:2222&amp;quot;, nil))
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Besides our projects, we&amp;rsquo;ve also collaborated with fellow Gopher and SSH
+protocol enthusiast &lt;a href=&#34;https://twitter.com/shazow&#34;&gt;@shazow&lt;/a&gt;. He&amp;rsquo;s worked on one or
+two SSH projects with us and has his own popular SSH project
+&lt;a href=&#34;https://github.com/shazow/ssh-chat&#34;&gt;ssh-chat&lt;/a&gt;, so it was very helpful to get
+his feedback on this API.&lt;/p&gt;
+
+&lt;p&gt;And as I mentioned, we use this in Cmd.io and is one of the first steps towards
+making Cmd.io open source.&lt;/p&gt;
+
+&lt;h2 id=&#34;sshfront&#34;&gt;sshfront&lt;/h2&gt;
+
+&lt;p&gt;I know some of you browse our repositories and may have found
+&lt;a href=&#34;https://github.com/gliderlabs/sshfront&#34;&gt;sshfront&lt;/a&gt;, an SSH daemon that calls out
+to your own commands to handle SSH sessions and authentication. It&amp;rsquo;s sort of
+like CGI for SSH. You get this high-performance server daemon and you can script
+how to handle sessions using any language you want by just using standard
+IO.&lt;/p&gt;
+
+&lt;p&gt;Since we often need more customization, we haven&amp;rsquo;t used it in many projects, but
+it&amp;rsquo;s great for prototyping. That said, I&amp;rsquo;d be pretty comfortable using it in
+production as well. It&amp;rsquo;s like a simpler, more programmable version of OpenSSH.&lt;/p&gt;
+
+&lt;p&gt;Anyway, we haven&amp;rsquo;t touched it in a while, but we could probably reduce its
+codebase to a tenth the size by dropping in gliderlabs/ssh. Perhaps that could
+be an exercise for one of you out there excited to use gliderlabs/ssh?&lt;/p&gt;
+
+&lt;p&gt;In any case, enjoy the library and build cool stuff!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rebooting Glider Labs</title>
+      <link>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</link>
+      <pubDate>Thu, 29 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</guid>
+      <description>&lt;p&gt;Well I said I&amp;rsquo;d post more about the Glider Labs reboot this month and I&amp;rsquo;m about out of time. In lieu of my planned announcement, we&amp;rsquo;re going to have to settle with this post. I had planned to kill a few birds with one stone with the reboot announcement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Explain where we are going&lt;/li&gt;
+&lt;li&gt;Explain how we intend to do it sustainably&lt;/li&gt;
+&lt;li&gt;Set up financial transparency&lt;/li&gt;
+&lt;li&gt;Announce three new projects&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was too much to finish so quickly. We did &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;announce Cmd.io&lt;/a&gt; but the other two projects are not ready to be announced, except to a few friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;Why three projects? I wanted to make it clear that no single project is the focus of Glider Labs. They&amp;rsquo;d also be different enough to show that it&amp;rsquo;s bigger than just one kind of project. Although before the reboot you might consider Glider Labs a &amp;ldquo;DevOps&amp;rdquo; company, that&amp;rsquo;s no longer the case even if we still have existing and planned projects that fall into that category.&lt;/p&gt;
+
+&lt;p&gt;I should explain some quick background. I started Glider Labs with a friend a few years ago. It started as a sort of lifestyle consulting business, but since it leveraged a lot of my open source work, I was keen on it someday pivoting into a sort of open source R&amp;amp;D lab. Basically a place where I could sustainably do my life&amp;rsquo;s work and ideally the work of my like-minded, similarly independent friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;It almost didn&amp;rsquo;t happen, and we almost shut down entirely. Then, somehow the planets aligned and I&amp;rsquo;d been afforded a chance to shoot for the moon, so to speak.&lt;/p&gt;
+
+&lt;p&gt;What I&amp;rsquo;m going to be doing with Glider Labs is not an easy plan to explain. My first attempt was with what I called &lt;a href=&#34;http://progrium.com/blog/2015/10/05/the-next-10-years-megalith/&#34;&gt;Megalith&lt;/a&gt;. Unfortunately, it intrigued people but gave no indication of what it was. Almost a year has gone by and I can start to explain it better now, but it&amp;rsquo;s definitely not down to a soundbite I&amp;rsquo;m happy with.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m pretty sure at this point the core idea is about automation and programmability. I wrote a bit about &lt;a href=&#34;http://progrium.com/blog/2016/04/25/generativity/&#34;&gt;generativity&lt;/a&gt; as an important foundation, and I started to reframe this path as a mission to make the world more &lt;a href=&#34;http://progrium.com/wiki/Programmability/&#34;&gt;programmable&lt;/a&gt;. But these are sort of nuanced ideas that aren&amp;rsquo;t well known, so they don&amp;rsquo;t make for a great explanation. Just recently, though, it hit me: automation. Not just automation, but &lt;em&gt;systemically democratized automation&lt;/em&gt;. That&amp;rsquo;s what it&amp;rsquo;s about.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d love to try and explain what I mean by that, but this post would quickly get out of control. I will say it&amp;rsquo;s not about AI, but it can involve AI. It&amp;rsquo;s not about bots, but involves and powers bots. It&amp;rsquo;s not about end-user programming, but end-user programming is a subversive part of it. It&amp;rsquo;s not about devops, but it both relies on and pushes devops further. It&amp;rsquo;s definitely not about cryptocurrency, but one aspect hugely overlaps with the idea of a &lt;a href=&#34;https://en.wikipedia.org/wiki/Decentralized_autonomous_organization&#34;&gt;DAO&lt;/a&gt;. I could go on, but my intention isn&amp;rsquo;t to throw buzzwords at you, but help convey how deep this goes.&lt;/p&gt;
+
+&lt;p&gt;A few people I know that have absorbed enough of it have mentioned how much it echoes of &lt;a href=&#34;https://en.wikipedia.org/wiki/Douglas_Engelbart&#34;&gt;Douglas Engelbart&amp;rsquo;s&lt;/a&gt; work, at least in scope and intention (&amp;ldquo;augmenting human capability&amp;rdquo;). I&amp;rsquo;ve also rather intentionally borrowed a lot of his ideas in approach, most significantly, using the system to build the system (&amp;ldquo;bootstrapping&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;All this said, it&amp;rsquo;s easier to build and show than to explain up front, and better to show proof than make lofty sounding promises. That&amp;rsquo;s why I wanted to at least announce and demo some of the projects with our reboot announcement. However, we&amp;rsquo;ll just have to wait a bit longer. There&amp;rsquo;s plenty of time.&lt;/p&gt;
+
+&lt;p&gt;So there we are. I didn&amp;rsquo;t quite achieve what I wanted to with this announcement, but I&amp;rsquo;m very excited. Over the next &amp;hellip; well for the foreseeable future you&amp;rsquo;ll see more announcements, more details, and over time the plan will reveal itself regardless of what I was able to communicate.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/devlog/2015/a-pattern-emerges/&#34;&gt;A pattern will emerge.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Commands as a Service with Cmd.io</title>
+      <link>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</link>
+      <pubDate>Thu, 01 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/announcing-cmd-io/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;m excited to announce a soon-to-be-released, eventually open source
+product for developers, operators, and power users. It&amp;rsquo;s called Cmd.io, or
+&amp;ldquo;Command IO&amp;rdquo; as we pronounce it. Cmd.io will let you use and share commands for
+the terminal, as a service, over SSH.&lt;/p&gt;
+
+&lt;p&gt;With Cmd.io you can make or install command-line utilities that you can use
+from anyplace with an SSH client. Commands are run in a consistent environment
+that you configure specifically for you or your team. You can share access to
+your commands, allowing friends and colleagues to run them as well. This is
+great for letting anybody on your team kick off build or deployment automations
+right from their terminal. But this is only the beginning!&lt;/p&gt;
+
+&lt;p&gt;In the demo video below, we use &lt;code&gt;jq&lt;/code&gt; as a service, build a PDF with LaTeX
+without installing it, provision cloud resources using
+Terraform with no configuration or credentials, and
+turn &lt;code&gt;git push&lt;/code&gt; into a powerful, programmable automation tool.&lt;/p&gt;
+
+&lt;div class=&#34;ui embed&#34; data-source=&#34;vimeo&#34; data-id=&#34;181089646&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;As mentioned in our &lt;a href=&#34;http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/&#34;&gt;last
+post&lt;/a&gt;, we&amp;rsquo;ll be &amp;ldquo;rebooting&amp;rdquo;
+Glider Labs this month to focus on a number of innovative tools like this. More
+on that soon. We just couldn&amp;rsquo;t wait to give you a preview of what&amp;rsquo;s to come.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re excited by Cmd.io you can subscribe with the link below to hear when it&amp;rsquo;s
+available and possibly get early access. Otherwise,
+let me know what you think in the comments, including ideas you might have for
+how you&amp;rsquo;d use it.&lt;/p&gt;
+
+&lt;div class=&#34;ui info message&#34;&gt;
+  &lt;i class=&#34;mail icon&#34;&gt;&lt;/i&gt;&lt;a href=&#34;http://eepurl.com/cdWjaX&#34;&gt;Subscribe&lt;/a&gt;
+  to be notified when Cmd.io comes online.
+
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

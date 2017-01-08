@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New Logspout: Extensible Docker Logging :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Mar</span>
+          <span class="day">31</span>
+          <span class="year">2015</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2015/new-logspout-extensible-docker-logging/">New Logspout: Extensible Docker Logging</a></h1>
+      </div>
+      
+
+<p><a href="https://github.com/gliderlabs/logspout">Logspout</a> is a Docker container for stateless, host-level log forwarding. It was designed specifically for Docker container logs. It&rsquo;s one of the earliest standalone components built for the Docker ecosystem, and the canonical way to deal with Docker logs for many.</p>
+
+<p>After Glider Labs adopted the project, we updated and automated its build and release process, switched it to <a href="http://gliderlabs.com/blog/2015/03/20/our-minimal-alpine-linux-image-joins-docker-official-images/">Alpine</a>, and took care of a few long standing bugs. Our next release will focus on a re-architected version that is more modular and more extensible.</p>
+
+<p>You can try it now in master <code>HEAD</code>, which is also tagged on Docker Hub as <code>:master</code>. In preparation for the next release, let us tell you more about it.</p>
+
+<h3 id="modules">Modules</h3>
+
+<p>Logspout now includes a concept of modules, similar to, say, Nginx modules. Modules are chunks of functionality added or removed at compile-time. In our case, they&rsquo;re added or removed at Docker build-time, with no need for you to set up or install any compiler toolchain.</p>
+
+<p>Managing modules happens in a <code>modules.go</code> source file that is intended for operators to edit. Although it&rsquo;s a Go source file, think of it like a configuration file. No real knowledge of Go is necessary. It looks like this:</p>
+
+<pre><code class="language-go">package main
+
+import (
+	_ &quot;github.com/gliderlabs/logspout/adapters/raw&quot;
+	_ &quot;github.com/gliderlabs/logspout/adapters/syslog&quot;
+	_ &quot;github.com/gliderlabs/logspout/httpstream&quot;
+	_ &quot;github.com/gliderlabs/logspout/routesapi&quot;
+	_ &quot;github.com/gliderlabs/logspout/transports/tcp&quot;
+	_ &quot;github.com/gliderlabs/logspout/transports/udp&quot;
+)
+</code></pre>
+
+<p>These are the default modules used in Logspout. It&rsquo;s safe to remove any of these lines to drop a module. You can also add lines pointing to new Logspout module packages. These packages can live in any repository, allowing you to build your own modules without forking or pushing upstream to the logspout repository.</p>
+
+<p>Editing this file seems to suggest you&rsquo;d need to fork the logspout repository to make a custom build, but you don&rsquo;t. We let you customize <code>modules.go</code> with an <code>ONBUILD</code> hook. With this, making a custom build of Logspout that follows official releases is extremely easy. <a href="https://github.com/gliderlabs/logspout/tree/master/custom">Here is an example.</a></p>
+
+<h3 id="adapters-and-transports">Adapters and Transports</h3>
+
+<p>Previously, the idea of a &ldquo;Logspout adapter&rdquo; was just a hardcoded function mapping in Logspout. We started with an RFC 3164 &ldquo;syslog&rdquo; adapter, then others contributed two more: a JSON over UDP adapter, and a separate &ldquo;rfc5424&rdquo; adapter for modern syslog. People also asked for TCP syslog, or hacked in support for other adapters like RabbitMQ and Kafka.</p>
+
+<p>Using modules, we now have a real API for adding new and externally maintained adapters. We also support different transports, which can be used by adapters to prevent needing to create adapters for each type of possible transport. For example, the new syslog adapter lets you use UDP, TCP, or any other transport added in the future, such as perhaps <a href="https://github.com/gliderlabs/logspout/blob/master/transports/tls/tls.go">TLS</a>.</p>
+
+<p>We then redesigned our built-in adapters. There is now a single syslog adapter that supports both RFC 5425 (default) and RFC 3164. It&rsquo;s more configurable and out of the box has more sensible defaults. There&rsquo;s also a raw adapter that allows generalized templated log messages over any supported transport.</p>
+
+<h3 id="extension-points">Extension Points</h3>
+
+<p>For those interested in writing adapters, or are curious about our extension architecture, Logspout modules are enabled by <a href="https://github.com/progrium/go-extpoints">go-extpoints</a>. This is a library and generator for building extension points in Go programs. Extension points are a mechanism for <a href="http://en.wikipedia.org/wiki/Inversion_of_control">inversion of control</a>, similar to <a href="http://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>. Each extension point represents a part of Logspout that a module can hook into.</p>
+
+<p>Here is a list of current extension point types in Logspout. Some are more advanced or internally used than others, but are available to module authors nonetheless.</p>
+
+<ul>
+<li><strong>AdapterFactory</strong> - allows you to add new types of route adapters (syslog, Kafka, etc)</li>
+<li><strong>AdapterTransport</strong> - allows you to add new adapter transports (UDP, TLS, etc)</li>
+<li><strong>HttpHandler</strong> - allows you to add new top level endpoints to the HTTP service</li>
+<li><strong>Job</strong> - allows you to add parallel running tasks (HTTP server, container pump, etc)</li>
+<li><strong>LogRouter</strong> - allows you to add new log routing intakes (containers, syslog, etc)</li>
+</ul>
+
+<p>Extension <em>points</em> are package singletons where you register and access objects implementing the type for that extension point. Extension <em>types</em> like those listed above each have their own extension point. Extension types are either a Go interface, where an extension must implement the interface methods, or a function signature type definition, where an extension is literally a callback function.</p>
+
+<p>Here is the simplest example of a module package hooking into an extension point. We implement the <code>HttpHandler</code> function signature, which just says to return a Go <code>http.Handler</code>, and register it with the <code>HttpHandlers</code> extension point on package initialization.</p>
+
+<pre><code class="language-go">package hello
+
+import (
+  &quot;github.com/gliderlabs/logspout/router&quot;
+  &quot;net/http&quot;
+)
+
+func init() {
+  router.HttpHandlers.Register(HelloHandler, &quot;hello&quot;)
+}
+
+func HelloHandler() http.Handler {
+  mux := http.NewServeMux()
+  mux.HandleFunc(&quot;/hello&quot;, func(w http.ResponseWriter, r *http.Request) {
+    w.Write([]byte(&quot;Hello!&quot;))
+  })
+  return mux
+}
+
+</code></pre>
+
+<p>Adding an import for this package in <code>modules.go</code> and rebuilding will add a new <code>/hello</code> endpoint to the Logspout web server.</p>
+
+<p>For more examples, check out the other default modules in the Logspout repository such as <a href="https://github.com/gliderlabs/logspout/tree/master/httpstream">httpstream</a>, <a href="https://github.com/gliderlabs/logspout/tree/master/routesapi">routesapi</a>, and of course the <a href="https://github.com/gliderlabs/logspout/tree/master/adapters">adapter</a> and <a href="https://github.com/gliderlabs/logspout/tree/master/transports">transport</a> modules. Even much of the core Logspout <a href="https://github.com/gliderlabs/logspout/tree/master/router">router package</a> is implemented with extension points.</p>
+
+<h3 id="docker-log-drivers">Docker Log Drivers</h3>
+
+<p>Docker itself is about to <a href="https://github.com/docker/docker/issues/7195">support log drivers</a>. This introduces improvements to current Docker logging, and lets you recompile Docker with new log drivers.</p>
+
+<p>Logspout will continue to be an easier and more configurable solution for drop-in container log forwarding. The built-in log drivers in Docker will actually help many Logspout deployments, since you&rsquo;ll be able to disable Docker writing logs to local disk. Let Logspout forward logs to where they should really be.</p>
+
+<p>If you have questions about writing modules, using extension points, or using the latest Logspout, let us know via <a href="https://github.com/gliderlabs/logspout/issues">Logspout issues</a>, or join us in <code>#gliderlabs</code> on Freenode.</p>
+
+      <div class="footer">Posted by Jeff Lindsay. Tagged: docker, logspout</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2015\/new-logspout-extensible-docker-logging\/';
+    var disqus_title = 'New Logspout: Extensible Docker Logging';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2015\/new-logspout-extensible-docker-logging\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

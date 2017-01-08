@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finances on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/finances/</link>
+    <description>Recent content in Finances on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Dec 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/finances/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Glider Labs Financial Transparency</title>
+      <link>http://gliderlabs.com/devlog/2016/financial-transparency/</link>
+      <pubDate>Wed, 21 Dec 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/financial-transparency/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m excited to announce we are now sharing &lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;all of our expenses&lt;/a&gt; directly from our books in real-time. This is the first step towards full financial transparency, eventually including income, account balances, even equity contributions. The system is automatic, real-time, and beautifully visualized.&lt;/p&gt;
+
+&lt;p&gt;We were heavily influenced by Cushion&amp;rsquo;s &lt;a href=&#34;http://cushionapp.com/running-costs/&#34;&gt;Running Costs&lt;/a&gt; page, so a big thanks to them for the visualization concept. Here&amp;rsquo;s what ours looks like at the time of this post:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/finances/&#34;&gt;&lt;img src=&#34;http://gliderlabs.com/images/2016/expenses-services.png&#34; alt=&#34;Glider Labs 2016 Expenses: Hosted Services&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The visualization is accompanied by a table with more details. We&amp;rsquo;ve split the Running Costs report into three categories for easier consumption: Hosted Services, Staff Costs, and Other. The data includes all of 2016 and will show a rolling window of the last 12 months as we go into 2017.&lt;/p&gt;
+
+&lt;h2 id=&#34;transparency&#34;&gt;Transparency&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m a big fan of transparency in organizations. Financial transparency in particular captures the state and health of an organization, which usually comes in the form of reports and metrics. When I worked at Twilio, our CEO, Jeff Lawson, would give weekly all-hands meetings. In these he shared how much money was in the bank and discussed what we saw on the internal financial dashboard. This was confidential and employees only, but a nice gesture of transparency.&lt;/p&gt;
+
+&lt;p&gt;Financial transparency is especially important for any mission-driven, public benefit organization. When I was a director at &lt;a href=&#34;http://www.hackerdojo.com/&#34;&gt;Hacker Dojo&lt;/a&gt;, we&amp;rsquo;d have monthly meetings open to anybody that shared a typical income and expense report. In the early days, before we had proper bookkeeping, we&amp;rsquo;d screengrab reports from Mint. Ideally, though, our books would always be in good shape and publicly available.&lt;/p&gt;
+
+&lt;p&gt;Glider Labs started as a consulting company, but our reboot represents a shift towards an open, public benefit organization. Although I haven&amp;rsquo;t properly communicated our mission yet, it&amp;rsquo;s built around open source and open source values.&lt;/p&gt;
+
+&lt;p&gt;Open source and community-run organizations like Hacker Dojo are open and mostly decentralized, allowing anybody to participate. In these cases, transparency is not just about accountability and goodwill. Transparency is necessary for the community to participate and make decisions effectively.&lt;/p&gt;
+
+&lt;h2 id=&#34;automated-bookkeeping&#34;&gt;Automated Bookkeeping&lt;/h2&gt;
+
+&lt;p&gt;The only way to get the ideal level of financial transparency is to automate it. I don&amp;rsquo;t just mean making the bookkeeping data available via API. The act of bookkeeping itself needs to be automated as well. In smaller organizations that don&amp;rsquo;t rely on their books for the day-to-day, making reports is often the forcing function to clean up the books and make sure it&amp;rsquo;s all correct. To have continuous reporting like this means ongoing bookkeeping, which traditionally means hiring a bookkeeper.&lt;/p&gt;
+
+&lt;p&gt;Perhaps for that reason, most bookkeeping software is not very automation friendly. Especially for the type of automation we have planned. So we decided to make our own. It&amp;rsquo;s a simple double-entry bookkeeping system backed by SQL for data consistency and custom reporting, and speaks JSON over HTTP. It&amp;rsquo;s called Tully, named after &lt;a href=&#34;http://ghostbusters.wikia.com/wiki/Louis_Tully&#34;&gt;Louis Tully&lt;/a&gt; from Ghostbusters.&lt;/p&gt;
+
+&lt;p&gt;We took heavy inspiration from &lt;a href=&#34;http://www.ledger-cli.org/&#34;&gt;Ledger&lt;/a&gt; and &lt;a href=&#34;http://plaintextaccounting.org/&#34;&gt;Ledger-likes&lt;/a&gt;. In fact, Tully can import and export Ledger-compatible files, so you can use Ledger with Tully. Also like Ledger, Tully is open source. Or will be, eventually.&lt;/p&gt;
+
+&lt;p&gt;The real magic of Tully we&amp;rsquo;ll save for later. For now, we&amp;rsquo;re using an early version of it to power the Finances page.&lt;/p&gt;
+
+&lt;p&gt;As a side note, you&amp;rsquo;ll notice we pay for GoDaddy Bookkeeping. Once we do our taxes to verify Tully has parity, we&amp;rsquo;ll switch off of GoDaddy. I actually loathe GoDaddy, but GoDaddy Bookkeping was acquired. It used to be called &lt;a href=&#34;http://outright.com/&#34;&gt;Outright&lt;/a&gt;. Despite being GoDaddy now, it&amp;rsquo;s a great modern, minimal bookkeeping tool. Interestingly, it was originally developed by a founding member of Hacker Dojo, Dean Mao, while at Hacker Dojo.&lt;/p&gt;
+
+&lt;h2 id=&#34;2016-closing-retrospective&#34;&gt;2016 Closing Retrospective&lt;/h2&gt;
+
+&lt;p&gt;The timing of all this aligns nicely with the close of 2016. Already we&amp;rsquo;ve received some great questions inspired by the 2016 data on our Finances page. I&amp;rsquo;d love to answer any other questions people have via Twitter (&lt;a href=&#34;https://twitter.com/progrium&#34;&gt;@progrium&lt;/a&gt;), in the comments here, or in &lt;a href=&#34;http://slack.gliderlabs.com/&#34;&gt;our Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To provide some context for the data, 2016 was a very light year for the business. At our peak in 2015, we had a staff of around 5 people working with several clients at once. When my co-founder, Andy, let himself get burnt out, he left Glider Labs. In a panic I started to reduce our load and planned for time off myself until the end of 2015. During that time I started formulating some of the ideas I have now for Glider Labs.&lt;/p&gt;
+
+&lt;p&gt;Going into 2016, in order to pay rent I took on some clients. Although we stopped working with most of our other staff, I wanted to keep Matt around, which also meant taking on clients for him. With the future of Glider Labs uncertain, we basically got by doing the minimal amount of client work.&lt;/p&gt;
+
+&lt;p&gt;Then, over the summer, a bunch of events and ideas came together that led to &lt;a href=&#34;http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/&#34;&gt;the reboot in September&lt;/a&gt;. Internally the reboot started at the end of July. It meant we&amp;rsquo;d stop taking client work and focus on innovating in open source. I know that&amp;rsquo;s vague, but the point is we had to economize and shift the business towards a different model. So you can see August to September we started reducing our costs and our AWS activity started going up.&lt;/p&gt;
+
+&lt;p&gt;We can probably reduce our costs even more. Another great benefit of this transparency is that we can get suggestions for reducing our costs. For example, our friend Jo&amp;euml;l mentioned in Slack using Let&amp;rsquo;s Encrypt instead of SSLMate. It turns out we already started using Let&amp;rsquo;s Encrypt but only after our renewal with SSLMate. One thing Cushion has that we don&amp;rsquo;t yet is an explanation for our costs. Hopefully that will come in time as well.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s about it for now. Definitely looking forward to 2017. Enjoy the holidays!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

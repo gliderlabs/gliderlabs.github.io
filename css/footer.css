@@ -1,0 +1,53 @@
+footer {
+  border-top: 2px solid #00A6CE;
+  background-color: #333;
+  font-weight: 300;
+  font-size: 15px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+footer, footer a, footer a:visited {
+  color: #888;
+}
+footer .column.first {
+  margin-left: 30px;
+}
+footer .column {
+  margin-right: -15px;
+}
+footer .list {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+footer h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fcfcfc;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+footer h4 img {
+  width: 30px;
+  position: relative;
+  margin-left: -35px;
+  margin-top: -6px;
+  vertical-align: top;
+}
+footer form {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+footer input.email {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: #444 !important;
+  border: 0;
+  color: #fff !important;
+}
+footer input.button {
+  border-radius: 0;
+  border-top-right-radius: 2px !important;
+  border-bottom-right-radius: 2px !important;
+  border: 0 !important;
+  color: rgba(0,0,0,0.8) !important;
+}

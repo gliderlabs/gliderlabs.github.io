@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Testing your project&#39;s development setup :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Sep</span>
+          <span class="day">7</span>
+          <span class="year">2016</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2016/test-dev-setup/">Testing your project&#39;s development setup</a></h1>
+      </div>
+      <p>There are usually hidden assumptions about your project&rsquo;s development environment that you don&rsquo;t find out about until somebody else tries to setup the project. Very much like the first pass at a user interface.</p>
+
+<p>In this case I&rsquo;m not talking about installing or using your project, but setting it up for development. Onboarding new contributors. The bigger the project or the more languages involved, the more this can be an issue.</p>
+
+<p>We&rsquo;ve probably all noticed this problem before. Once everybody is setup for a project, nobody knows for sure what breaks a new setup. The answer should be obvious: test it.</p>
+
+<p>You might be thinking VMs or Vagrant, but Docker is really the best solution here.</p>
+
+<p>&ldquo;Wait,&rdquo; you say, &ldquo;shouldn&rsquo;t you already just be developing your app in Docker?&rdquo;</p>
+
+<p>Maybe, though honestly, it&rsquo;s not always worth it. It&rsquo;s great to be able to build the production image and try it locally, but development can be a very different build and workflow. In some cases, Dockerizing the development workflow is more work and too much of a hit on contributor UX than it&rsquo;s worth.</p>
+
+<p>If you do use Docker for development, you&rsquo;re basically already testing your environment. If you don&rsquo;t for whatever reason, testing setup is a good excuse to make a development-oriented Dockerfile anyway. Not necessarily to use, just to use as a test.</p>
+
+<p>The base image doesn&rsquo;t have to be the same as production or development, though it&rsquo;s a good idea to at least match production. We use Alpine because it&rsquo;s small and fast to install packages, and we happen to also use Alpine for production images.</p>
+
+<p>The fact it&rsquo;s different from development doesn&rsquo;t matter a huge amount in practice. People are going to have different platforms anyway. Mac, Linux, different distros, different versions. As long as you&rsquo;re installing the same versions of packages you need, it&rsquo;s a pretty good approximation. This Dockerfile can then become the reference for what needs to go into, for example, a Brewfile.</p>
+
+<p>Don&rsquo;t expect it to be fast for larger projects, but using Docker and Alpine will make it pretty fast. I don&rsquo;t run this test all the time during development. I only run it when I&rsquo;m changing files that affect the dev environment setup. Then I run <code>make test-env</code>, which simply builds the Dockerfile.</p>
+
+<p>If the build fails, the test has failed. If it builds without error, the test has passed. Now if you were to, for example, add a JavaScript dependency but forget to add it to <code>package.json</code>, you&rsquo;d find out from this test.</p>
+
+<p>You might also run the tests or do the build as part of this Dockerfile. Ideally, you&rsquo;d also run your development runner or harness in the image build if you have one. That can be tricky because they run indefinitely. Adding a timeout to the runner so it exits after a given time if provided handles that. Now you&rsquo;ll know it builds, but more importantly that the development harness runs.</p>
+
+<p>We make sure the CI always runs this test. In fact, then we also run the usual CI tests using that container. We usually want to run CI tests in Docker anyway because it makes for a much simpler and debuggable CI setup. It&rsquo;s sort of convenient that our environment test is actually just a build. Here is a <code>circle.yml</code> for one of our projects:</p>
+
+<pre><code>machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t automata -f dev/setup/Dockerfile .
+
+test:
+  override:
+    - docker run automata /bin/sh -c &quot;make test&quot;
+
+</code></pre>
+
+<p>I&rsquo;ve not run into many people that talk about testing their project development setup. I assume this means most aren&rsquo;t doing it. Though if you develop in Docker, you&rsquo;re already mostly doing it, maybe without realizing.</p>
+
+<p>Whether or not you develop in Docker, though, after having a number of onboarding blunders, this now saves us from maybe 95% of them. We know with that level of certainty, given you have XYZ tools installed (which we check for), that anybody will get a working development environment with <code>make setup</code>.</p>
+
+<p>YMMV ;)</p>
+
+      <div class="footer">Posted by Jeff Lindsay. Tagged: notes</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2016\/test-dev-setup\/';
+    var disqus_title = 'Testing your project\x27s development setup';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2016\/test-dev-setup\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>

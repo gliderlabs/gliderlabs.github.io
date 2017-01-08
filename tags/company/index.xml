@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Company on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/company/</link>
+    <description>Recent content in Company on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Aug 2016 18:29:59 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/company/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Quiet Accomplishments of Glider Labs v1</title>
+      <link>http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/</link>
+      <pubDate>Mon, 29 Aug 2016 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/quiet-accomplishments-gliderlabs-v1/</guid>
+      <description>
+
+&lt;p&gt;Next month I&amp;rsquo;ll be announcing the details of a reboot of Glider Labs. Since starting this company in 2014, we&amp;rsquo;ve been primarily focused on consulting services. However, our biggest impact has come from our open source projects. Despite not having the resources to properly support these projects, Glider Labs has quietly achieved a significant user base from these intentionally simple components.&lt;/p&gt;
+
+&lt;p&gt;We don&amp;rsquo;t have a marketing budget and we barely have time to even maintain these projects. At our peak there had been five of us part-time, but for the bulk of our existence it has just been two of us. Yet over the past couple years these projects have received tens of millions of downloads and are some of the most popular projects in the Docker ecosystem.&lt;/p&gt;
+
+&lt;h2 id=&#34;registrator&#34;&gt;Registrator&lt;/h2&gt;
+
+&lt;p&gt;Before &lt;a href=&#34;https://github.com/gliderlabs/registrator&#34;&gt;Registrator&lt;/a&gt; you had to make your service register itself with a service registry, or configure and run a second service with every service to register it. Registrator makes service discovery easy by automatically registering services run in Docker.&lt;/p&gt;
+
+&lt;p&gt;Registrator has been downloaded on Docker Hub over 20 million times. It&amp;rsquo;s currently the &lt;strong&gt;10th most downloaded image&lt;/strong&gt; on Docker Hub. Registrator is used by several Fortune 500 companies, in some cases directly and in some cases via larger projects that use Registrator.&lt;/p&gt;
+
+&lt;h2 id=&#34;logspout&#34;&gt;Logspout&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/gliderlabs/logspout&#34;&gt;Logspout&lt;/a&gt; simply collects Docker container logs and routes them somewhere else. It has become the most popular Docker log handler. According to &lt;a href=&#34;https://www.datadoghq.com/docker-adoption/&#34;&gt;a report by Datadog&lt;/a&gt; earlier this year, based on their users using Docker, Logspout is the &lt;strong&gt;6th most popular image&lt;/strong&gt; run in Docker. This doesn&amp;rsquo;t even capture the customized images people run to use 3rd party log drivers.&lt;/p&gt;
+
+&lt;p&gt;Docker Hub today reports 249 &lt;em&gt;public&lt;/em&gt; images with Logspout in the name. Our official Logspout image is reported to have been pulled over 15 million times. Apparently Docker Hub reporting gets quite nebulous with high numbers, however we know it is the 18th most downloaded image on Docker Hub.&lt;/p&gt;
+
+&lt;h2 id=&#34;alpine-linux&#34;&gt;Alpine Linux&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;re not responsible for Alpine Linux, but we did popularize it in the Docker community with a &lt;a href=&#34;https://github.com/gliderlabs/docker-alpine&#34;&gt;general purpose base image&lt;/a&gt;. It is the smallest Linux distribution with a very extensive and up-to-date package library. After our &lt;code&gt;gliderlabs/alpine&lt;/code&gt; image started to become popular, we submitted it to the official Docker Library, making us responsible for the &lt;code&gt;alpine&lt;/code&gt; Docker image. However, since Docker later hired Alpine creator Nathanel Copa, we don&amp;rsquo;t get much credit for it.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, Alpine is becoming one of the most popular base images used in the Docker ecosystem. Docker themselves recently moved many of their official images to Alpine.&lt;/p&gt;
+
+&lt;p&gt;The Alpine Linux image has also received over 10 million direct pulls, but is probably more widely used as the base image for many public and private images. We can&amp;rsquo;t easily measure its true usage, but anecdotally, we talked to nearly every vendor at DockerCon 2015 and even then over half of them were using Alpine. We even noticed most of the talks and demos by Docker employees were using Alpine.&lt;/p&gt;
+
+&lt;h2 id=&#34;other-achievements&#34;&gt;Other Achievements&lt;/h2&gt;
+
+&lt;p&gt;We could talk about some of the clients we&amp;rsquo;ve worked with. Perhaps even more impressive are the clients we&amp;rsquo;ve turned away. But, when we find the time for them, it&amp;rsquo;s the tools we build that we&amp;rsquo;re most proud of. We have over 20 &lt;a href=&#34;http://gliderlabs.com/projects/&#34;&gt;other open source projects&lt;/a&gt;. Most of which, we haven&amp;rsquo;t even announced.&lt;/p&gt;
+
+&lt;p&gt;Glider Labs inherited some of these projects from me. I&amp;rsquo;ve been working in the Docker ecosystem since helping develop Docker itself. Immediately after, I built the first killer application for Docker, an open source single-host Heroku called &lt;a href=&#34;https://github.com/dokku/dokku&#34;&gt;Dokku&lt;/a&gt;. It&amp;rsquo;s still one of the most popular PaaS projects, with its own ecosystem of plugins and subprojects, thanks its wonderful maintainers.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve also worked with a lot of companies in the Docker scene. And we still occasionally work with Docker. We helped architect and implement the initial Docker plugin system. Through sponsorships, we&amp;rsquo;ve contributed to other projects as well. For example, we added multi-region support to the AWS provider in Terraform, thanks to a sponsorship from Cisco.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-next&#34;&gt;What Next&lt;/h2&gt;
+
+&lt;p&gt;This upcoming reboot will put a focus on our open source work. We&amp;rsquo;ll also be taking it to a new level, working a bit higher up the stack. We&amp;rsquo;re not going to be able to do it without your support, so I hope that if you&amp;rsquo;ve benefited from our work so far, you&amp;rsquo;ll consider helping out however you can. Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What have we been doing for 40 years?</title>
+      <link>http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/</link>
+      <pubDate>Wed, 08 Apr 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/what-have-we-been-doing-for-40-years/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://gliderlabs.com/images/2015/xerox_parc_1975.jpg&#34; title=&#34;Xerox PARC, 1975 via Computer History Museum&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Desktop computing, graphical user interfaces, object-oriented programming, laser printing, Ethernet. Pillars of modern computing invented by only 25 people over 5 years at one place: Xerox PARC.&lt;/p&gt;
+
+&lt;p&gt;Unix and C. Foundations of modern systems software initially developed by just 2 people over 3 years at one place: Bell Labs.&lt;/p&gt;
+
+&lt;p&gt;Both happened in the early 1970s. &lt;em&gt;That was over 40 years ago.&lt;/em&gt; What exactly have the rest of us been doing since?&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;We&amp;rsquo;ve been looking at photos of cats!&amp;rdquo; Okay, but really.&lt;/p&gt;
+
+&lt;p&gt;The startup world responds half-jokingly, and perhaps with an air of trademark Silicon Valley superiority, &amp;ldquo;Um, we&amp;rsquo;ve been innovating? You know, bringing all this to market and making it easier to use?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re right! We&amp;rsquo;ve been innovating. That doesn&amp;rsquo;t sound so bad, does it? It&amp;rsquo;s not, but there is a big difference between invention and innovation. &lt;strong&gt;The problem is that innovation feeds on invention, and we&amp;rsquo;ve been feeding on the same inventions for 40 years.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Consumers are not complaining. In fact, they&amp;rsquo;re eating it up. Innovation is clearly where the money is and there&amp;rsquo;s plenty more. Now anybody in Silicon Valley that claims to be inventing is usually lying. Most are proud &lt;em&gt;not&lt;/em&gt; to be inventing.&lt;/p&gt;
+
+&lt;p&gt;Some say Google X is the new Xerox PARC. No way. Google X is about sexy commercial applications that are extremely risky. Xerox PARC was about researchers&amp;rsquo; independent curiosity and vision. One was set up for &amp;ldquo;pie in the sky&amp;rdquo; innovation, the other was set up for &amp;ldquo;blue sky&amp;rdquo; &lt;em&gt;invention&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Interestingly, systems software and tooling naturally gets more attention when allowed blue sky invention. Put a bunch of computer scientists together and let them do whatever they want. What are they going to do? Odds are they&amp;rsquo;ll design a new programming language. Exactly! I know that&amp;rsquo;s not particularly ideal, but it reveals the inherent bias. Compare that scenario with them being tasked to change the world.&lt;/p&gt;
+
+&lt;p&gt;Innovation is great. I&amp;rsquo;m not trying to devalue the work we&amp;rsquo;ve done since the 70s. However, this obsession with innovation clearly devalues invention. Moreover, looking at what are effectively the same tools after 40 years, my concern is that lack of invention stifles major progress in systems software.&lt;/p&gt;
+
+&lt;p&gt;The good news is that we&amp;rsquo;ve seen it could only take a handful of people in the right place with the right incentives to make another leap. It just most likely won&amp;rsquo;t be VC backed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Modern Systems Software Mess</title>
+      <link>http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/</link>
+      <pubDate>Tue, 24 Mar 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/the-modern-systems-software-mess/</guid>
+      <description>&lt;p&gt;In August 2000, while Rob Pike was still at Bell Labs and before he co-developed Go, he gave a talk called &lt;a href=&#34;http://doc.cat-v.org/bell_labs/utah2000/&#34;&gt;Systems Software Research is Irrelevant&lt;/a&gt;. Today the situation is perhaps not as dire. At the very least, his examples are noticeably dated. However, many of his points remain true and point at systemic roadblocks to better systems software.&lt;/p&gt;
+
+&lt;p&gt;His main point was that academic research around systems software had lost the influence on industry it once had. The rise of Google and its academically inclined engineering culture is maybe the biggest shift since this talk. Google has applied and published great research on software systems, particularly around distributed systems.&lt;/p&gt;
+
+&lt;p&gt;That said, there are points from this talk that resonate with and inspire people like us trying to fill the void of modern systems R&amp;amp;D.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Startups are too focused on short time scale and practical results to try new things.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;At first I thought, &amp;ldquo;That&amp;rsquo;s not true!&amp;rdquo; Then I realized what startups really do is often take the opportunity to apply &lt;em&gt;recent&lt;/em&gt; ideas (ie Docker), but rarely do they (nor should they) try to &lt;em&gt;invent&lt;/em&gt; novel approaches to systems.&lt;/p&gt;
+
+&lt;p&gt;Instead, invention most often comes from organizations large enough to necessitate invention for their particular problem and scale, or startup vendors that are trying to sell a shiny new solution. This has yielded great papers, best practices, and open source software, but in all cases these are independent solutions to specific problems.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Go back to thinking about and &lt;em&gt;building systems&lt;/em&gt;. Narrowness is irrelevant; breadth is relevant: it&amp;rsquo;s the essence of &lt;em&gt;system&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;No one vendor will provide a solution for your entire system. There are virtualization vendors, CI vendors, source control vendors, operating system vendors, configuration management vendors, database vendors, container management vendors, and on and on.&lt;/p&gt;
+
+&lt;p&gt;Whether these are hosted services or commercially supported open source software, none of them will ever solve (read: own) the system. No matter what they think or what they tell you.&lt;/p&gt;
+
+&lt;p&gt;Instead, we collectively share best practices and loosely converge on similar system architectures. But who has the incentive and business platform that can support &lt;em&gt;systemic&lt;/em&gt; innovation?&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There has been much talk about component architectures but only one true success: Unix pipes. It should be possible to build interactive and distributed applications from piece parts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If there is a guiding hypothesis behind the Glider Labs approach to building systems, this is it. Rarely does this get a chance to be fully explored.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Pattern Emerges</title>
+      <link>http://gliderlabs.com/devlog/2015/a-pattern-emerges/</link>
+      <pubDate>Wed, 04 Mar 2015 18:29:59 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2015/a-pattern-emerges/</guid>
+      <description>&lt;p&gt;It may not be obvious, but Glider Labs is named after the glider pattern in &lt;a href=&#34;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&#34;&gt;Conway&amp;rsquo;s Life&lt;/a&gt;. If you&amp;rsquo;re not familiar, Conway&amp;rsquo;s Life is a popular cellular automaton that exhibits how simple rules can lead to complex behavior.&lt;/p&gt;
+
+&lt;p&gt;Specifically, Conway&amp;rsquo;s Life is a simple simulation with cells that can either be on or off at each step. Every step, four simple rules are executed dealing with the state of a cell&amp;rsquo;s neighbors. From this, you get what seems to be a disproportionate amount of rich, dynamic behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/8Ar9S6zEFjJiU/giphy.gif&#34; alt=&#34;Conway&#39;s Life&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Key takeaways from Conway&amp;rsquo;s Life are about complexity and emergence. A well constructed initial pattern of only a few cells in Life can grow into an entire ecosystem of interesting patterns.&lt;/p&gt;
+
+&lt;p&gt;A minor change to the initial pattern has a tremendous effect on how the pattern evolves. While the system is deterministic, the dynamics of it are not terribly intuitive. You rarely know how a change will cascade through the lifespan of a Life simulation unless you built it up from scratch yourself.&lt;/p&gt;
+
+&lt;p&gt;Murphy&amp;rsquo;s law is an unavoidable truth in operations and reliability engineering. Root cause analysis usually proves major system failures not to be random, but an unexpected series of smaller, cascading failures. This is the nature of failure and predictability in complex systems, and it&amp;rsquo;s fascinating how well this is captured in models like Conway&amp;rsquo;s Life.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/tXlpbXfu7e2Pu/giphy.gif&#34; alt=&#34;Complex Life system&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Studying complexity and emergence in Conway&amp;rsquo;s Life also reveals useful truths in designing everyday software systems. Although there are infinite possible simulations in Life, you quickly notice that all complex patterns are made up of just a few simple patterns that keep recurring.&lt;/p&gt;
+
+&lt;p&gt;These useful patterns can be arranged in countless ways to compose more complex useful patterns. Complex patterns can then be combined as modules to make even more complex patterns. Sound familiar?&lt;/p&gt;
+
+&lt;p&gt;In case these patterns seem pointless, it may be worth mentioning that Conway&amp;rsquo;s Life is &lt;a href=&#34;http://jeremykun.com/2011/06/30/turing-machines-and-conways-dreams/&#34;&gt;Turing complete&lt;/a&gt;. As such, you can implement &lt;a href=&#34;https://www.youtube.com/watch?v=xP5-iIeKXE8&#34;&gt;Conway&amp;rsquo;s Life in Conway&amp;rsquo;s Life&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This only scratches the surface of what can be gleaned from studying Conway&amp;rsquo;s Life. There are plenty of ways to play with Life simulations, including implementing one yourself. Here&amp;rsquo;s a &lt;a href=&#34;http://play.golang.org/p/nr2wehptjW&#34;&gt;runnable Go implementation&lt;/a&gt; in about 100 lines.&lt;/p&gt;
+
+&lt;p&gt;The glider pattern we reference is the smallest traveling pattern in Life, and one of the most useful building blocks. It&amp;rsquo;s often used as a symbol of Conway&amp;rsquo;s Life, but has also been adopted to &lt;a href=&#34;http://www.catb.org/hacker-emblem/faqs.html&#34;&gt;represent the hacker ethic&lt;/a&gt;. This is a convenient symbolic addition for us.&lt;/p&gt;
+
+&lt;p&gt;All of this gets at how we think about problems, design systems, and captures the realities of our field. This is why we are Glider Labs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://media.giphy.com/media/wErVWADqta2oE/giphy.gif&#34; alt=&#34;Glider pattern&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

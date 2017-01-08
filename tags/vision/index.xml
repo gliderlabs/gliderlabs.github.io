@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vision on Glider Labs, Open Source Innovation Lab</title>
+    <link>http://gliderlabs.com/tags/vision/</link>
+    <description>Recent content in Vision on Glider Labs, Open Source Innovation Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Sep 2016 18:00:00 -0500</lastBuildDate>
+    <atom:link href="http://gliderlabs.com/tags/vision/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Rebooting Glider Labs</title>
+      <link>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</link>
+      <pubDate>Thu, 29 Sep 2016 18:00:00 -0500</pubDate>
+      
+      <guid>http://gliderlabs.com/devlog/2016/gliderlabs-rebooted/</guid>
+      <description>&lt;p&gt;Well I said I&amp;rsquo;d post more about the Glider Labs reboot this month and I&amp;rsquo;m about out of time. In lieu of my planned announcement, we&amp;rsquo;re going to have to settle with this post. I had planned to kill a few birds with one stone with the reboot announcement:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Explain where we are going&lt;/li&gt;
+&lt;li&gt;Explain how we intend to do it sustainably&lt;/li&gt;
+&lt;li&gt;Set up financial transparency&lt;/li&gt;
+&lt;li&gt;Announce three new projects&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was too much to finish so quickly. We did &lt;a href=&#34;http://gliderlabs.com/devlog/2016/announcing-cmd-io/&#34;&gt;announce Cmd.io&lt;/a&gt; but the other two projects are not ready to be announced, except to a few friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;Why three projects? I wanted to make it clear that no single project is the focus of Glider Labs. They&amp;rsquo;d also be different enough to show that it&amp;rsquo;s bigger than just one kind of project. Although before the reboot you might consider Glider Labs a &amp;ldquo;DevOps&amp;rdquo; company, that&amp;rsquo;s no longer the case even if we still have existing and planned projects that fall into that category.&lt;/p&gt;
+
+&lt;p&gt;I should explain some quick background. I started Glider Labs with a friend a few years ago. It started as a sort of lifestyle consulting business, but since it leveraged a lot of my open source work, I was keen on it someday pivoting into a sort of open source R&amp;amp;D lab. Basically a place where I could sustainably do my life&amp;rsquo;s work and ideally the work of my like-minded, similarly independent friends and colleagues.&lt;/p&gt;
+
+&lt;p&gt;It almost didn&amp;rsquo;t happen, and we almost shut down entirely. Then, somehow the planets aligned and I&amp;rsquo;d been afforded a chance to shoot for the moon, so to speak.&lt;/p&gt;
+
+&lt;p&gt;What I&amp;rsquo;m going to be doing with Glider Labs is not an easy plan to explain. My first attempt was with what I called &lt;a href=&#34;http://progrium.com/blog/2015/10/05/the-next-10-years-megalith/&#34;&gt;Megalith&lt;/a&gt;. Unfortunately, it intrigued people but gave no indication of what it was. Almost a year has gone by and I can start to explain it better now, but it&amp;rsquo;s definitely not down to a soundbite I&amp;rsquo;m happy with.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m pretty sure at this point the core idea is about automation and programmability. I wrote a bit about &lt;a href=&#34;http://progrium.com/blog/2016/04/25/generativity/&#34;&gt;generativity&lt;/a&gt; as an important foundation, and I started to reframe this path as a mission to make the world more &lt;a href=&#34;http://progrium.com/wiki/Programmability/&#34;&gt;programmable&lt;/a&gt;. But these are sort of nuanced ideas that aren&amp;rsquo;t well known, so they don&amp;rsquo;t make for a great explanation. Just recently, though, it hit me: automation. Not just automation, but &lt;em&gt;systemically democratized automation&lt;/em&gt;. That&amp;rsquo;s what it&amp;rsquo;s about.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d love to try and explain what I mean by that, but this post would quickly get out of control. I will say it&amp;rsquo;s not about AI, but it can involve AI. It&amp;rsquo;s not about bots, but involves and powers bots. It&amp;rsquo;s not about end-user programming, but end-user programming is a subversive part of it. It&amp;rsquo;s not about devops, but it both relies on and pushes devops further. It&amp;rsquo;s definitely not about cryptocurrency, but one aspect hugely overlaps with the idea of a &lt;a href=&#34;https://en.wikipedia.org/wiki/Decentralized_autonomous_organization&#34;&gt;DAO&lt;/a&gt;. I could go on, but my intention isn&amp;rsquo;t to throw buzzwords at you, but help convey how deep this goes.&lt;/p&gt;
+
+&lt;p&gt;A few people I know that have absorbed enough of it have mentioned how much it echoes of &lt;a href=&#34;https://en.wikipedia.org/wiki/Douglas_Engelbart&#34;&gt;Douglas Engelbart&amp;rsquo;s&lt;/a&gt; work, at least in scope and intention (&amp;ldquo;augmenting human capability&amp;rdquo;). I&amp;rsquo;ve also rather intentionally borrowed a lot of his ideas in approach, most significantly, using the system to build the system (&amp;ldquo;bootstrapping&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;All this said, it&amp;rsquo;s easier to build and show than to explain up front, and better to show proof than make lofty sounding promises. That&amp;rsquo;s why I wanted to at least announce and demo some of the projects with our reboot announcement. However, we&amp;rsquo;ll just have to wait a bit longer. There&amp;rsquo;s plenty of time.&lt;/p&gt;
+
+&lt;p&gt;So there we are. I didn&amp;rsquo;t quite achieve what I wanted to with this announcement, but I&amp;rsquo;m very excited. Over the next &amp;hellip; well for the foreseeable future you&amp;rsquo;ll see more announcements, more details, and over time the plan will reveal itself regardless of what I was able to communicate.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gliderlabs.com/devlog/2015/a-pattern-emerges/&#34;&gt;A pattern will emerge.&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

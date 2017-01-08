@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Build simple systems to build good systems :: Glider Labs, Open Source Innovation Lab</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <link href="/semantic/semantic.min.css" rel="stylesheet" type="text/css">
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link href="/css/header.css" rel="stylesheet" type="text/css">
+  <link href="/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="/css/article.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header>
+  <div class="ui container">
+    <div class="ui text menu">
+      <div class="item brand">
+        <a href="/"><img src="/images/logo.svg" /></a>
+      </div>
+      
+      <div class="right item">
+        <a href="/devlog/">Devlog</a>
+      </div>
+      
+      <div class="item">
+        <a href="/wiki/">Wiki</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://gliderlabs.com/projects">Projects</a>
+      </div>
+      
+      <div class="item">
+        <a href="/services/">Services</a>
+      </div>
+      
+      <div class="item">
+        <a href="http://glider-slackin.herokuapp.com">Community</a>
+      </div>
+      
+      <div class="item">
+        <a href="/finances/">Finances</a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="ui container grid">
+  <div class="twelve wide column">
+    <article>
+      <div class="meta">
+        <div class="date">
+          <span class="month">Apr</span>
+          <span class="day">29</span>
+          <span class="year">2015</span>
+        </div>
+      </div>
+      <div class="ui header">
+        <h1><a href="http://gliderlabs.com/devlog/2015/build-simple-systems-to-build-good-systems/">Build simple systems to build good systems</a></h1>
+      </div>
+      <p>We often talk about complexity in software systems, but for some reason we don&rsquo;t seem to talk enough about simplicity. I was quite happy to find that Rich Hickey&rsquo;s keynote at Strange Loop 2011 focused on simplicity.</p>
+
+<p><strong><a href="http://www.infoq.com/presentations/Simple-Made-Easy">Rich Hickey - Simple Made Easy on InfoQ</a></strong> (<a href="https://github.com/matthiasn/talk-transcripts/blob/master/Hickey_Rich/SimpleMadeEasy.md">transcript</a>)</p>
+
+<p>Simple Made Easy is about Hickey&rsquo;s exploration of what simple really means, what it doesn&rsquo;t mean, and how that can be used as a guide towards simplicity in software.</p>
+
+<p>Most experienced programmers know that simplicity is difficult to achieve. Perhaps part of the reason for this is that simplicity seems to be somewhat subjective. Here, Hickey explains a framework to more objectively identify how simple a design is.</p>
+
+<p><center><img src="/images/2015/simple_made_easy.jpg" alt="Simple as not interleaved" /></center></p>
+
+<p>He starts with the etymology of simple. It describes a meaning around the amount of <em>interleaving</em>. What&rsquo;s interesting is that this interpretation of simplicity is not about the number of elements, just how interleaved they are.</p>
+
+<blockquote>
+<p>Simplicity is not about counting. I&rsquo;d rather have more things hanging nice, straight down, not twisted together, than just a couple of things tied in a knot.</p>
+</blockquote>
+
+<p>To help with this particular meaning of simple, he shares an archaic word that is specifically the opposite of this:</p>
+
+<blockquote>
+<p><strong>complect</strong> - to interleave, entwine, or braid</p>
+</blockquote>
+
+<p>By using complecting as our primary anti-pattern, we can more easily see a path towards simplicity than the vague notion of &ldquo;avoiding complexity.&rdquo;</p>
+
+<p>He also identifies that simple is not the same as easy, despite many using those words interchangeably. While easy is ultimately relative, simple in these terms has some objectivity to it. We can ask, &ldquo;How much interleaving is there?&rdquo;</p>
+
+<p>The talk goes over a number tactical approaches to simplicity by not complecting, but there&rsquo;s also wisdom shared around the value of simplicity.</p>
+
+<p>Perhaps the biggest issue with complexity is that it undermines understanding your software. He makes the point that understanding is the real key to making changes quickly in software.</p>
+
+<p>Conventional wisdom says testing is how we can make changes quickly. While there is clearly value in testing, the popular notion that test coverage above all else is what you need to move quickly is challenged by Hickey. He calls it guardrail programming.</p>
+
+<blockquote>
+<p>What&rsquo;s true of every bug found in the field? It passed all the tests. So now what do you do? I think we&rsquo;re in this world I&rsquo;d like to call guardrail programming. It&rsquo;s really sad. We&rsquo;re like, &ldquo;I can make change because I have tests!&rdquo; Who does that? Who drives their car around banging against the guardrail saying, &ldquo;Whoa! I&rsquo;m glad I&rsquo;ve got these guardrails because I&rsquo;d never make it to the show on time.&rdquo;</p>
+</blockquote>
+
+<p>Once you find a bug, tests only tell you what the problem isn&rsquo;t. You have to reason about the program, debug it, try things. If the program is complex, this is harder to do. The only way to improve this process is if the program is simple.</p>
+
+<blockquote>
+<p>Compared to the complexity we can create, we&rsquo;re all statistically at the same point in our ability to understand it, which is not very good. So we&rsquo;re going to have to bring things towards us.</p>
+</blockquote>
+
+<p>There&rsquo;s definitely a lot of great insight in this talk. As a final point, let&rsquo;s remember that simplicity doesn&rsquo;t just happen. It&rsquo;s not the default mode of software engineering.</p>
+
+<blockquote>
+<p>Simplicity is a choice. It requires constant vigilance.</p>
+</blockquote>
+
+<p>We need more thinking around simplicity. If you know of other great talks on simplicity, in software or otherwise, please share in the comments.</p>
+
+      <div class="footer">Posted by Jeff Lindsay. Tagged: programming</div>
+    </article>
+  </div>
+  <div class="four wide column">
+    <div class="sidebar">
+  <h5>Glider Labs is an open source innovation lab run by <a href="http://progrium.com">Jeff Lindsay</a>
+   and supported by the community.</h5>
+  <p>Our mission is to promote automation and programmability in connected software.</p>
+  <p>
+  We build innovative tools for developers that encourage new ways of thinking.
+  Our tools are built around simplicity and extensibility, and designed for emergence.
+  <p class="social">
+    <a rel="me" href="https://twitter.com/gliderlabs"><i class="icon twitter square huge"></i></a>
+    <a ref="me" href="https://vimeo.com/gliderlabs"><i class="icon vimeo square huge"></i></a>
+    <a rel="me" href="https://github.com/gliderlabs"><i class="icon github huge"></i></a>
+    <a ref="me" href="http://eepurl.com/btMWAb"><i class="icon mail huge"></i></a>
+  </p>
+</div>
+
+  </div>
+</div>
+
+
+<section class="subscribe">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <i class="mail icon"></i> <a href="http://eepurl.com/btMWAb">Subscribe</a> to get future posts sent to you via email.
+    </div>
+  </div>
+</section>
+
+
+<section class="comments">
+  <div class="ui container grid">
+    <div class="one wide column"></div>
+    <div class="twelve wide column">
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'gliderlabs';
+    var disqus_identifier = 'http:\/\/gliderlabs.com\/devlog\/2015\/build-simple-systems-to-build-good-systems\/';
+    var disqus_title = 'Build simple systems to build good systems';
+    var disqus_url = 'http:\/\/gliderlabs.com\/devlog\/2015\/build-simple-systems-to-build-good-systems\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+  </div>
+<section>
+
+
+
+</main>
+<footer>
+  <div class="ui container grid">
+    <div class="row text-left">
+      <div class="three wide column first">
+        <h4><img src="/images/dots-bw.svg" /> Glider Labs</h4>
+        <div class="ui list">
+          
+          <div class="item"><a href="/devlog/">Devlog</a></div>
+          
+          <div class="item"><a href="/wiki/">Wiki</a></div>
+          
+          <div class="item"><a href="http://gliderlabs.com/projects">Projects</a></div>
+          
+          <div class="item"><a href="/services/">Services</a></div>
+          
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Community</a></div>
+          
+          <div class="item"><a href="/finances/">Finances</a></div>
+          
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4>Connect</h4>
+        <div class="ui list">
+          <div class="item"><a href="http://glider-slackin.herokuapp.com">Slack</a></div>
+          <div class="item"><a href="http://twitter.com/gliderlabs">Twitter</div>
+          <div class="item"><a href="https://kiwiirc.com/client/irc.freenode.net/#gliderlabs">IRC</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs">GitHub</a></div>
+          <div class="item"><a href="https://vimeo.com/gliderlabs">Vimeo</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Projects</h4>
+        <div class="ui list">
+          <div class="item"><a href="https://github.com/dokku/dokku">Dokku</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/docker-alpine">Alpine for Docker</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/registrator">Registrator</a></div>
+          <div class="item"><a href="https://github.com/gliderlabs/logspout">Logspout</a></div>
+
+          <div class="item"><a href="https://gliderlabs.com/projects">More...</a></div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <h4>Subscribe for Updates</h4>
+        <form action="//gliderlabs.us10.list-manage.com/subscribe/post?u=49c4b06ffd30bcf49ec53c277&amp;id=616ca7efc0"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form-inline" target="_blank" novalidate>
+          <div class="ui small right action input">
+              <input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="Email Address" required>
+              
+              <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="ui button">
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_49c4b06ffd30bcf49ec53c277_616ca7efc0" tabindex="-1" value=""></div>
+          </div>
+        </form>
+        <small>Stay informed and get our devlog in your inbox.</small>
+      </div>
+    </div>
+    <div class="row text-left">
+      <div class="twelve wide column">
+        <br />
+        <small>Copyright &copy; Glider Labs 2017<br />
+          Made in Austin, Texas.</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58928488-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+<script type="text/javascript">$('.ui.embed').embed();</script>
+</body>
+</html>
